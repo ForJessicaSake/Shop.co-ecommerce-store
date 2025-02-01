@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Regular"),
+        url("./fonts/Satoshi-Regular.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Medium"),
+        url("./fonts/Satoshi-Medium.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Bold"),
+        url("./fonts/Satoshi-Bold.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Italic"),
+        url("./fonts/Satoshi-Italic.woff") format("woff");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Integral-CF";
+    src: local("Fontspring-DEMO-integralcf-demibold"),
+        url("./fonts/Fontspring-DEMO-integralcf-demibold.otf") format("opentype");
+    font-weight: 700;
+}
+
+
+@font-face {
+    font-family: "Integral-CF";
+    src: local("Fontspring-DEMO-integralcf-extrabold"),
+        url("./fonts/Fontspring-DEMO-integralcf-extrabold.otf") format("opentype");
+    font-weight: 700;
+}
+
+
+h1,h2,h3, h4, h5 {
+    font-family: "Integral-CF" 
+}
+
+body {
+    font-family: "Satoshi";
+}
+
