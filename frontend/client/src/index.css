@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Archivo Black", serif;
+}
+
+html,
+body {
+    /* font-family: "Satoshi"; */
+    font-family: "Poppins", serif;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Light"),
+        url("./fonts/Satoshi-Light.woff") format("woff");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Regular"),
+        url("./fonts/Satoshi-Regular.woff") format("woff");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Medium"),
+        url("./fonts/Satoshi-Medium.woff") format("woff");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Bold"),
+        url("./fonts/Satoshi-Bold.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: local("Satoshi-Italic"),
+        url("./fonts/Satoshi-Italic.woff") format("woff");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Integral-CF";
+    src: local("Fontspring-DEMO-integralcf-demibold"),
+        url("./fonts/Fontspring-DEMO-integralcf-demibold.otf") format("opentype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: "Integral-CF";
+    src: local("Fontspring-DEMO-integralcf-extrabold"),
+        url("./fonts/Fontspring-DEMO-integralcf-extrabold.otf") format("opentype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+.slick-slide {
+    padding: 4px 8px;
+}
+
+.custom-button::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.6s ease;
+    opacity: 0;
+    transform: scale(0);
+}
+
+.custom-button:hover {
+    border-radius: 10px;
+    transform: rotate(3deg);
+}
+
+.custom-button:hover::before {
+    opacity: 0.5;
+    transform: scale(2);
+}
