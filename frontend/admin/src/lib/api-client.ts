@@ -1,10 +1,10 @@
 import axios from "axios";
 
-axios.defaults.baseURL = import.meta.env.BASE_URL;
+axios.defaults.baseURL = import.meta.env.VITE_KEY_BASE_URL;
 axios.defaults.headers.common["Content-Type"] = "application/json";
 
 export const apiClient = axios.create({
-  baseURL: import.meta.env.BASE_URL,
+  baseURL: import.meta.env.VITE_KEY_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },

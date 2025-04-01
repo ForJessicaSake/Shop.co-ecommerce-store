@@ -13,14 +13,13 @@ import session from "express-session";
 const app = express();
 app.use(
   session({
-    secret: "your_secret_key",
+    secret: process.env.COOKIE_SEESION,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false, maxAge: 60000 * 60 },
   })
 );
 dotenv.config();
-// app.use(cors());
 app.use(
   cors({
     origin: ["http://localhost:5173", "http://localhost:5174"],

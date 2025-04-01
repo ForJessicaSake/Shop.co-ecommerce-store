@@ -19,6 +19,7 @@
     "@tanstack/react-query-devtools": "^5.66.0",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",
+    "dot-env": "^0.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
