@@ -9,22 +9,39 @@ const RecommendedProducts = () => {
       <h2 className="text-xl sm:text-4xl font-bold text-center my-10">
         You might also like
       </h2>
-      <div className="w-full flex pb-5 gap-5 overflow-x-auto lg:grid lg:grid-cols-4 lg:place-content-center">
-        {isLoading
-          ? Array.from({ length: 4 }).map((_, index) => (
-              <Skeleton
-                key={index}
-                variant="rectangular"
-                width={250}
-                height={250}
-                className="animate-pulse rounded-xl"
-              />
-            ))
-          : products
-              ?.slice(7, 12)
-              .map((product, index) => (
-                <Product key={index} product={product} />
+      <div>
+        {isLoading ? (
+          <div className="w-full">
+            <div className="hidden pb-5 gap-5 lg:overflow-hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-items-center">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <Skeleton
+                  key={index}
+                  variant="rectangular"
+                  width={250}
+                  height={250}
+                  className="animate-pulse rounded-xl"
+                />
               ))}
+            </div>
+            <div className="md:hidden flex justify-center pb-5 gap-5 overflow-x-auto lg:overflow-hidden">
+              {Array.from({ length: 1 }).map((_, index) => (
+                <Skeleton
+                  key={index}
+                  variant="rectangular"
+                  width={250}
+                  height={250}
+                  className="animate-pulse rounded-xl"
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="flex pb-5 gap-5 overflow-x-auto justify-center lg:overflow-hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-items-center">
+            {products?.slice(7, 12).map((product, index) => (
+              <Product key={index} product={product} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

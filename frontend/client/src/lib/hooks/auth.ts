@@ -9,7 +9,7 @@ export const useCreateClientAccount = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: (payload: UserType) =>
-      apiClient.post("/api/auth/signup", JSON.stringify(payload)),
+      apiClient.post("/auth/api/signup", JSON.stringify(payload)),
     onSuccess: () => {
       toast.success("Account created successfully");
       navigate("/login");
@@ -23,12 +23,13 @@ export const useLoginClientAccount = () => {
   return useMutation({
     mutationFn: (payload: UserType) =>
       apiClient
-        .post("/api/auth/login", JSON.stringify(payload))
-        .then((res) => res.data),
+        .post("/auth/api/login", JSON.stringify(payload))
+        .then((res) => res.data.data),
     onSuccess: (data) => {
       toast.success("Login successful");
       navigate("/cart");
-      localStorage.setItem("user_id", JSON.stringify(data.data));
+      localStorage.setItem("user_id", JSON.stringify(data.userId));
+      localStorage.setItem("token", JSON.stringify(data.token));
     },
     onError: (error: Error) => toast.error(error.response.data.message),
   });

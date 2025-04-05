@@ -10,7 +10,6 @@ import MenuItem from "@mui/material/MenuItem";
 import { toast } from "sonner";
 import { IoIosLogOut } from "react-icons/io";
 import { HiOutlineLogin } from "react-icons/hi";
-import { MdOutlineAssignmentReturned } from "react-icons/md";
 
 const Navbar = () => {
   const { cartCount } = useCartStore();
@@ -71,16 +70,6 @@ const Navbar = () => {
             />
           </div>
           <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                navigate("/sign-up");
-              }}
-            >
-              <p className="flex items-center gap-2">
-                <MdOutlineAssignmentReturned /> <span> Sign up</span>
-              </p>
-            </MenuItem>
             <MenuItem
               onClick={() => {
                 handleClose();

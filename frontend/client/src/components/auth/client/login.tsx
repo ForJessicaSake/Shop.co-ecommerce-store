@@ -2,9 +2,10 @@ import Button from "../../micro/button";
 import TextInput from "../../micro/inputs/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, LoginSchemaType } from "./schema";
-import { useLoginClientAccount } from "../../../lib/hooks/client";
+import { useLoginClientAccount } from "../../../lib/hooks/auth";
 import { useForm } from "react-hook-form";
 import PasswordInput from "../../micro/inputs/PasswordInput";
+import { clientAuth } from "../../../lib/hooks/useAuth";
 
 const Login = () => {
   const { mutate: loginMutation, isPending } = useLoginClientAccount();
@@ -33,7 +34,7 @@ const Login = () => {
         <h1 className="text-xl sm:text-3xl font-bold text-center">
           Welcome back, log in to continue
         </h1>
-        <div className="mt-10 space-y-6 flex flex-col items-center w-full max-w-lg text-sm">
+        <div className="mt-10 space-y-10 flex flex-col items-center w-full max-w-lg text-sm">
           <TextInput
             placeholder="Enter your email address"
             register={register("email")}
@@ -63,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default clientAuth(Login, { authenticated: false });

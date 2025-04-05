@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ReviewCard from "../../home/testimonials/review-card";
 import Button from "../../micro/button";
-import { CustomerReviews } from "../../utils/constants";
 import ModalComponent from "../../micro/modal";
 import TextAreaInput from "../../micro/inputs/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,7 +18,7 @@ import {
 } from "../../../lib/hooks";
 import { useParams } from "react-router";
 import { toast } from "sonner";
-import { client_token } from "../../../lib/api-client";
+import { getCurrentToken } from "../../../lib/api-client";
 import Rating from "@mui/material/Rating";
 
 const AllReviews = () => {
@@ -50,7 +49,7 @@ const AllReviews = () => {
   };
 
   const handleOpen = () => {
-    if (!client_token) {
+    if (!getCurrentToken()) {
       return toast.error("You must be logged in to write a review");
     }
     setShowModal(true);
@@ -87,6 +86,17 @@ const AllReviews = () => {
         handleClose={handleClose}
       >
         <form onSubmit={handleSubmit(_onSubmit)} className="space-y-5">
+          <div className="flex justify-center text-5xl">
+            <Rating
+              name="rating"
+              onChange={(_, newValue) => {
+                setValue("rating", Number(newValue ?? 0));
+              }}
+              // size="large"
+              sx={{ fontSize: "3rem" }}
+              defaultValue={1}
+            />
+          </div>
           <TextInput
             error={errors.name?.message}
             register={register("name")}
@@ -103,23 +113,9 @@ const AllReviews = () => {
               rows={3}
             />
           </div>
-          <div className="flex justify-center text-5xl">
-            <Rating
-              name="rating"
-              onChange={(_, newValue) => {
-                setValue("rating", Number(newValue ?? 0));
-              }}
-              size="large"
-              defaultValue={1}
-            />
-          </div>
+
           <div className="w-full flex justify-center">
-            <Button
-              dark
-              size="l"
-              isLoading={isPending}
-              className="my-5 max-w-xs"
-            >
+            <Button dark size="l" isLoading={isPending} className="max-w-xs">
               Submit
             </Button>
           </div>

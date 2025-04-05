@@ -48,7 +48,7 @@ export const useCreateProductReview = () => {
   return useMutation({
     mutationFn: (data: ProductReviewSchemaType) => {
       const payload = { ...data, clientId, rating: 4 };
-      return apiClient.post("/api/productReviews", payload);
+      return apiClient.post("/api/reviews", payload);
     },
     onSuccess: () => {
       toast.success("Product review added successfully");
@@ -62,7 +62,7 @@ export const useGetProductReviews = (id?: string) => {
   return useQuery({
     queryKey: ["product-reviews", id],
     queryFn: () =>
-      apiClient.get(`/api/productReviews/${id}`).then((res) => res.data.data),
+      apiClient.get(`/api/reviews/${id}`).then((res) => res.data.data),
     enabled: !!id,
   });
 };

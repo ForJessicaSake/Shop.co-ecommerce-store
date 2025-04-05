@@ -10,7 +10,7 @@ import EmptyCart from "./empty-cart";
 import { ProductType } from "../../lib/types";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
-import { client_token } from "../../lib/api-client";
+import { getCurrentToken } from "../../lib/api-client";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -120,7 +120,7 @@ const Cart = () => {
               size="l"
               dark
               onClick={() =>
-                client_token ? alert("checkout modal") : navigate("/login")
+                getCurrentToken() ? alert("checkout modal") : navigate("/login")
               }
             >
               Go to Checkout

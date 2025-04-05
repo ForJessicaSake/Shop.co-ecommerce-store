@@ -1,6 +1,7 @@
 import { ErrorBoundary } from "../../error/index.js";
 import { User } from "../../models/auth.js";
 import bcrypt from "bcryptjs";
+import { createToken } from "./global.js";
 
 export const createClientAccount = async (req, res, next) => {
   const { email, password } = req.body;
@@ -36,12 +37,15 @@ export const loginClientAccount = async (req, res, next) => {
       });
     }
     const isValid = await bcrypt.compare(password, user.password);
+    const token = createToken(user._id);
     if (isValid) {
-      req.session.user_id = user.id;
       res.status(200).json({
         success: true,
         message: "Login successful",
-        data: user.id,
+        data: {
+          userId: user._id,
+          token,
+        },
       });
     } else {
       res.status(400).json({

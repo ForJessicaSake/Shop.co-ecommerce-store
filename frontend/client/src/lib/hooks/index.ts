@@ -1,3 +1,3 @@
 export * from "./product";
 export * from "./newsletter";
-export * from "./client";
+export * from "./auth";

@@ -5,7 +5,7 @@ type Options = {
   authenticated?: boolean;
 };
 
-export function adminAuth<T extends {}>(
+export function clientAuth<T extends {}>(
   Component: ComponentType<T>,
   { authenticated }: Options = { authenticated: true }
 ) {
@@ -15,9 +15,6 @@ export function adminAuth<T extends {}>(
     const token = getCurrentToken();
 
     useEffect(() => {
-      if (!token && authenticated) {
-        navigate("/login");
-      }
       if (token && location.pathname === "/login") {
         navigate("/");
       }

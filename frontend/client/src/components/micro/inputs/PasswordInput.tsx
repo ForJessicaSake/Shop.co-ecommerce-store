@@ -30,7 +30,7 @@ export default function PasswordInput({
       {label && <label className="mb-1 text-sm font-medium">{label}</label>}
       {error && (
         <div className="relative">
-          <p className="text-red-500 text-xs absolute bottom-1">
+          <p className="text-red-500 text-[11px] absolute bottom-1">
             {typeof error === "string" && error}
           </p>
         </div>

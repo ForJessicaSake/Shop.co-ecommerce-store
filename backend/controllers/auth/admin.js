@@ -1,7 +1,7 @@
 import { ErrorBoundary } from "../../error/index.js";
 import bcrypt from "bcryptjs";
 import { Admin } from "../../models/auth.js";
-
+import { createToken } from "./global.js";
 export const createAdminAccount = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -36,12 +36,16 @@ export const loginAdminAccount = async (req, res, next) => {
       });
     }
     const isValid = await bcrypt.compare(password, admin.password);
+    const token = createToken(admin._id);
     if (isValid) {
-      req.session.admin_id = admin._id;
       res.status(200).json({
         success: true,
         message: "Login successful",
         data: admin._id,
+        data: {
+          userId: admin._id,
+          token,
+        },
       });
     } else {
       res.status(400).json({

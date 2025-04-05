@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useCreateClientAccount } from "../../../lib/hooks/client";
+import { useCreateClientAccount } from "../../../lib/hooks/auth";
 import Button from "../../micro/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, SignUpSchemaType } from "./schema";
