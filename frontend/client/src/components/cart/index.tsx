@@ -10,10 +10,15 @@ import EmptyCart from "./empty-cart";
 import { ProductType } from "../../lib/types";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
-import { getCurrentToken } from "../../lib/api-client";
+import { getCurrentToken, getCurrentUser } from "../../lib/api-client";
+import { usePaystackPayment } from "react-paystack";
+import { useClient } from "../../lib/hooks";
+import { PaystackProps } from "../../lib/types/payment";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const clientId = getCurrentUser();
+  const { data } = useClient(clientId);
   const { cart, removeFromCart, updateCart } = useCartStore();
   const handleIncreaseQuantity = (product: ProductType) => {
     updateCart(product, product.quantity + 1);
@@ -41,6 +46,21 @@ const Cart = () => {
   const total = useMemo(() => {
     return subTotal + deliveryCharge - discount;
   }, [subTotal, discount]);
+
+  const config: PaystackProps = {
+    reference: new Date().getTime().toString(),
+    email: data?.user?.email ?? "",
+    amount: total * 1500 * 100,
+    publicKey: import.meta.env.VITE_KEY_PAYSTACK_PUBLIC_KEY,
+  };
+
+  const initializePayment = usePaystackPayment(config);
+  const onSuccess = () => {
+    toast.success("Payment successfully completed");
+  };
+  const onClose = () => {
+    toast.error("Your order was cancelled");
+  };
 
   return (
     <section className="mx-auto container px-8 lg:px-16">
@@ -119,8 +139,11 @@ const Cart = () => {
               className="mt-5 w-full"
               size="l"
               dark
+              isLoading={!total}
               onClick={() =>
-                getCurrentToken() ? alert("checkout modal") : navigate("/login")
+                getCurrentToken()
+                  ? initializePayment({ onSuccess, onClose })
+                  : navigate("/login")
               }
             >
               Go to Checkout

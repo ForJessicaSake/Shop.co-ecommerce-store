@@ -23,7 +23,8 @@ const Testimonials = () => {
             <ReviewCard
               name={customer.name}
               content={customer.content}
-              key={customer.id}
+              rating={4}
+              key={customer.id.toString()}
             />
           ))}
         </Slider>
@@ -37,7 +38,8 @@ const Testimonials = () => {
             <ReviewCard
               name={customer.name}
               content={customer.content}
-              key={customer.id}
+              rating={4}
+              key={customer.id.toString()}
               className={
                 currentSlideNumber === index
                   ? "bg-white shadow-md"
@@ -55,9 +57,10 @@ const Testimonials = () => {
         >
           {CustomerReviews.map((customer, index) => (
             <ReviewCard
-              key={customer.id}
               name={customer.name}
               content={customer.content}
+              rating={4}
+              key={customer.id.toString()}
               className={
                 currentSlideNumber === index
                   ? "bg-white shadow-md"

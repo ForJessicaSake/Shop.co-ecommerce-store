@@ -7,7 +7,7 @@ type ReviewCardProps = {
   content: string;
   rating: number;
   className?: string;
-  key?: string;
+  key: string;
 };
 
 const ReviewCard = ({

@@ -24,7 +24,7 @@ const Products = () => {
     setShowFilter(!showFilter);
   };
 
-  const handleChange = (event: Event, newValue: number[] | number) => {
+  const handleChange = (_: Event, newValue: number[] | number) => {
     setValue(newValue);
   };
   return (

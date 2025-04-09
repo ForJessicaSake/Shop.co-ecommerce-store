@@ -59,3 +59,30 @@ export const loginClientAccount = async (req, res, next) => {
     );
   }
 };
+
+export const clientDetails = async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findOne({ _id: id });
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User does not exist",
+      });
+    } else {
+      return res.status(200).json({
+        success: true,
+        message: "User details",
+        data: {
+          user: user,
+        },
+      });
+    }
+  } catch (error) {
+    next(
+      new ErrorBoundary(
+        error?.response?.data?.message ?? "Unable to retrieve client details"
+      )
+    );
+  }
+};

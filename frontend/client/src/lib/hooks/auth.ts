@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiClient } from "../api-client";
 import { toast } from "sonner";
 import { useNavigate } from "react-router";
@@ -32,5 +32,14 @@ export const useLoginClientAccount = () => {
       localStorage.setItem("token", JSON.stringify(data.token));
     },
     onError: (error: Error) => toast.error(error.response.data.message),
+  });
+};
+
+export const useClient = (id?: string) => {
+  return useQuery({
+    queryKey: ["client-details"],
+    queryFn: () =>
+      apiClient.get(`/auth/api/client/${id}`).then((res) => res.data.data),
+    enabled: !!id,
   });
 };
