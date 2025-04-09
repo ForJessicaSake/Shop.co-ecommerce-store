@@ -1,6 +1,8 @@
 import path from "path";
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
+
 import cors from "cors";
 import { connectDatabase } from "./config/db.js";
 import router from "./routes/product.js";
@@ -22,17 +24,35 @@ app.use(
     cookie: { secure: false, maxAge: 60000 * 60 },
   })
 );
-dotenv.config();
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "http://localhost:5174",
+//       process.env.BASEURLPROD,
+//     ],
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      process.env.BASEURLPROD,
-    ],
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        process.env.BASEURLPROD,
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 app.use(express.json());
