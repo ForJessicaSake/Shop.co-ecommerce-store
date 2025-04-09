@@ -24,31 +24,13 @@ app.use(
     cookie: { secure: false, maxAge: 60000 * 60 },
   })
 );
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:5173",
-//       "http://localhost:5174",
-//       process.env.BASEURLPROD,
-//     ],
-//     credentials: true,
-//   })
-// );
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "http://localhost:5174",
-        process.env.BASEURLPROD,
-      ];
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      process.env.FRONTENDCLIENTURL,
+    ],
     credentials: true,
   })
 );
