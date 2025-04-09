@@ -55,7 +55,7 @@ const Login = () => {
           <div>
             Don't have an account?{" "}
             <span className="cursor-pointer text-black/60">
-              <a href="/sign-up">sign up</a>
+              <a href="/signup">sign up</a>
             </span>
           </div>
         </div>

@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 import Login from "./components/auth/client/login";
-import SignUp from "./components/auth/client/sign-up";
+import SignUp from "./components/auth/client/signup";
 
 const queryClient = new QueryClient();
 
