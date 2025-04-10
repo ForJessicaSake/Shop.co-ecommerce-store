@@ -38,5 +38,6 @@
 ---
 
 ### Coming soon 
-- Order tracking and Payment status updates
+- Integrate Payment webhooks
+- Order tracking and Payment status updates 
 - User management
