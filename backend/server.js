@@ -30,6 +30,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5174",
       process.env.FRONTENDCLIENTURL,
+      process.env.FRONTENDADMINURL,
     ],
     credentials: true,
   })
