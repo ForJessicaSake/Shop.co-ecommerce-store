@@ -1,30 +1,17 @@
 import { Link, useNavigate } from "react-router";
-import { CgProfile } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { toast } from "sonner";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { IoIosLogOut } from "react-icons/io";
-import { HiOutlineLogin } from "react-icons/hi";
 import TextInput from "../micro/inputs/input";
 import { BsSearch } from "react-icons/bs";
+import Button from "../micro/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: { currentTarget: HTMLElement }) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   const handleLogOut = () => {
     localStorage.clear();
     toast.success("You have been logged out.");
@@ -54,36 +41,19 @@ const Navbar = () => {
             onChange={(e) => setSearchValue(e.target.value)}
           />
         </div>
-        <div onClick={handleClick}>
-          <CgProfile
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            className="w-5 h-5 cursor-pointer"
-          />
-        </div>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-          <MenuItem
+        <div className="space-x-5">
+          <Button
+            size="s"
             onClick={() => {
-              handleClose();
               navigate("/login");
             }}
           >
-            <p className="flex items-center gap-2">
-              <HiOutlineLogin /> <span> Log in</span>
-            </p>
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              handleClose();
-              handleLogOut();
-            }}
-          >
-            <p className="flex items-center gap-2">
-              <IoIosLogOut /> <span> Log out</span>
-            </p>
-          </MenuItem>
-        </Menu>
+            Login
+          </Button>
+          <Button size="s" onClick={handleLogOut}>
+            Logout
+          </Button>
+        </div>
       </div>
 
       <div className="lg:hidden">
@@ -106,14 +76,14 @@ const Navbar = () => {
               SHOP.CO
             </Link>
           </div>
-          <div onClick={handleClick}>
-            <CgProfile
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              className="w-5 h-5 cursor-pointer"
-            />
-          </div>
+          <Button
+            size="s"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login
+          </Button>
         </div>
       </div>
     </nav>

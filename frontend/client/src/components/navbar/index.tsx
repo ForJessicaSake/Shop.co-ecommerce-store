@@ -1,35 +1,15 @@
 import { Link, useNavigate } from "react-router";
 import { FiShoppingCart } from "react-icons/fi";
-import { CgProfile } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { useCartStore } from "../store";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { toast } from "sonner";
-import { IoIosLogOut } from "react-icons/io";
-import { HiOutlineLogin } from "react-icons/hi";
+import Button from "../micro/button";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { cartCount } = useCartStore();
   const [isOpen, setIsOpen] = useState(false);
-
-  const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: { currentTarget: HTMLElement }) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleLogOut = () => {
-    localStorage.clear();
-    toast.success("You have been logged out.");
-    navigate("/");
-  };
 
   return (
     <nav className="container mx-auto px-8 lg:px-16 py-5">
@@ -61,36 +41,14 @@ const Navbar = () => {
             </p>
             <FiShoppingCart className="w-5 h-5 cursor-pointer" />
           </Link>
-          <div onClick={handleClick}>
-            <CgProfile
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              className="w-5 h-5 cursor-pointer"
-            />
-          </div>
-          <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                navigate("/login");
-              }}
-            >
-              <p className="flex items-center gap-2">
-                <HiOutlineLogin /> <span> Log in</span>
-              </p>
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                handleClose();
-                handleLogOut();
-              }}
-            >
-              <p className="flex items-center gap-2">
-                <IoIosLogOut /> <span> Log out</span>
-              </p>
-            </MenuItem>
-          </Menu>
+          <Button
+            size="s"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login
+          </Button>
         </div>
       </div>
 
@@ -121,14 +79,6 @@ const Navbar = () => {
               </p>
               <FiShoppingCart className="w-5 h-5 cursor-pointer" />
             </Link>
-            <div onClick={handleClick}>
-              <CgProfile
-                aria-controls={open ? "basic-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                className="w-5 h-5 cursor-pointer"
-              />
-            </div>
           </div>
         </div>
         <div className="mt-5 bg-white pl-8">
@@ -142,6 +92,9 @@ const Navbar = () => {
               </li>
               <li>
                 <a href="#contact">Contact</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
               </li>
             </ul>
           )}
