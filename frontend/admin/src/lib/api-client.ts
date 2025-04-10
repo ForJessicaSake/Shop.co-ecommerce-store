@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "sonner";
 
 axios.defaults.baseURL = import.meta.env.VITE_KEY_BASE_URL;
 export const getCurrentToken = () => {
@@ -29,6 +30,7 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401 || error.response?.status === 403) {
+      toast.error("Your session has expired. Please log in again.");
       window.location.href = "/login";
       localStorage.clear();
     }
