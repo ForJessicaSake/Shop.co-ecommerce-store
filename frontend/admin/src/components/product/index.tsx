@@ -15,7 +15,7 @@ const Dashboard = () => {
           </Button>
         </Link>
       </div>
-      <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+      <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10">
         {isLoading
           ? Array.from({ length: 12 }).map((_, index) => (
               <Skeleton
@@ -27,14 +27,31 @@ const Dashboard = () => {
               />
             ))
           : data?.map((product) => (
-              <div className="min-w-48 sm:max-w-72 flex-none" key={product._id}>
+              <div className="min-w-48 sm:w-72 bg-white rounded-2xl shadow-md overflow-hidden flex flex-col justify-between transition-transform hover:scale-105">
                 <Link to={`/product/details/${product._id}`}>
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="sm:w-[295px] hover:transition-all duration-500 ease-out hover:scale-105 overflow-hidden"
+                    className="w-full h-60 object-cover"
                   />
                 </Link>
+
+                <div className="p-4 flex flex-col gap-2">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {product.name}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <p className="text-lg font-bold text-gray-900">
+                      ${product.price}
+                    </p>
+                    {product.discount && (
+                      <span className="text-xs bg-red-100 text-red-500 px-2 py-1 rounded-full">
+                        -{product.discount}%
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
       </div>

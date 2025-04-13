@@ -30,6 +30,7 @@
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
+    "paystack-api": "^2.0.6",
     "swagger-jsdoc": "^5.0.1",
     "swagger-ui-express": "^5.0.1"
   },

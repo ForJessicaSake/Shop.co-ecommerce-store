@@ -8,6 +8,7 @@ interface ProductStoreState {
   addToCart: (product: ProductType) => void;
   removeFromCart: (product: ProductType) => void;
   updateCart: (product: ProductType, quantity: number) => void;
+  clearCart: () => void;
 }
 
 export const useCartStore = create<ProductStoreState>()(
@@ -35,13 +36,18 @@ export const useCartStore = create<ProductStoreState>()(
               cart: state.cart.filter((item) => item._id !== product._id),
             };
           }
-
           return {
             cart: state.cart.map((item) =>
               item._id === product._id ? { ...item, quantity } : item
             ),
           };
         });
+      },
+      clearCart: () => {
+        set(() => ({
+          cartCount: 0,
+          cart: [],
+        }));
       },
     }),
     { name: "cart-storage" }

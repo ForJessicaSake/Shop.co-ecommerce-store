@@ -10,39 +10,40 @@ const Product = ({ product }: ProductProps) => {
   const { _id, image, name, price, rating, discount } = product;
 
   return (
-    <div className="min-w-48 sm:max-w-72 flex-none">
+    <div className="min-w-48 sm:w-72 bg-white rounded-2xl shadow-md overflow-hidden flex flex-col justify-between transition-transform hover:scale-105">
       <Link to={`/product/details/${_id}`}>
-        <img
-          src={image}
-          alt={name}
-          className="sm:w-[295px] hover:transition-all duration-500 ease-out hover:scale-105 overflow-hidden"
-        />
+        <img src={image} alt={name} className="w-full h-60 object-cover" />
       </Link>
-      <div className="mt-2 space-y-1">
-        <p className="font-bold">{name}</p>
-        <div className="flex items-center gap-1 text-lg">
+
+      <div className="p-4 flex flex-col gap-2">
+        <p className="text-sm font-semibold text-gray-800">{name}</p>
+
+        <div className="flex items-center gap-1 text-sm text-yellow-500">
           {typeof rating === "number" &&
             rating > 0 &&
             Array.from({ length: rating }).map((_, index) => (
-              <IoIosStar key={index} className="text-[#FFC633]" />
+              <IoIosStar key={index} />
             ))}
-          <p className="text-xs">
+          <span className="text-xs text-gray-500">
             {typeof rating === "number" && rating > 0 && `(${rating}/5)`}
-          </p>
+          </span>
         </div>
-        <p className="font-bold text-lg flex gap-3">
-          ${price}
+
+        <div className="flex items-center justify-between">
+          <p className="text-lg font-bold text-gray-900">${price}</p>
+
           {discount && (
-            <span className="line-through text-black/60">
-              ${discount && price - discount}
-            </span>
-          )}
-          {discount && (
-            <span className="bg-[#FF3333]/10 text-[#FF3333] text-xs flex justify-center items-center p-2 rounded-full w-14 h-7">
+            <span className="text-xs bg-red-100 text-red-500 px-2 py-1 rounded-full">
               -{discount}%
             </span>
           )}
-        </p>
+        </div>
+
+        {discount && (
+          <p className="text-sm text-gray-500 line-through">
+            ${price - (price * discount) / 100}
+          </p>
+        )}
       </div>
     </div>
   );

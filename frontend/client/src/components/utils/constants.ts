@@ -1,5 +1,5 @@
 export const MAX_FILE_SIZE = 1048576; // 1MB
-export const DELIVERY_CHARGE = 20; //DOLLARS
+export const DELIVERY_CHARGE = 5; //DOLLARS
 
 export function convertToBase64(
   file: File

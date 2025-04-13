@@ -12,8 +12,8 @@ const RecommendedProducts = () => {
       <div>
         {isLoading ? (
           <div className="w-full">
-            <div className="hidden pb-5 gap-5 lg:overflow-hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-items-center">
-              {Array.from({ length: 4 }).map((_, index) => (
+            <div className="hidden pb-5 gap-5 lg:overflow-hidden md:grid md:grid-cols-2 xl:grid-cols-3 md:place-items-center">
+              {Array.from({ length: 3 }).map((_, index) => (
                 <Skeleton
                   key={index}
                   variant="rectangular"
@@ -36,8 +36,8 @@ const RecommendedProducts = () => {
             </div>
           </div>
         ) : (
-          <div className="flex pb-5 gap-5 overflow-x-auto justify-center lg:overflow-hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:place-items-center">
-            {products?.slice(7, 12).map((product, index) => (
+          <div className="flex pb-5 gap-5 overflow-x-auto justify-center lg:overflow-hidden md:grid md::grid-cols-2 xl:grid-cols-3 md:place-items-center">
+            {products?.slice(7, 10).map((product, index) => (
               <Product key={index} product={product} />
             ))}
           </div>

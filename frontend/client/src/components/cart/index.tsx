@@ -9,17 +9,28 @@ import { useCartStore } from "../store";
 import EmptyCart from "./empty-cart";
 import { ProductType } from "../../lib/types";
 import { toast } from "sonner";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { getCurrentToken, getCurrentUser } from "../../lib/api-client";
-import { usePaystackPayment } from "react-paystack";
 import { useClient } from "../../lib/hooks";
-import { PaystackProps } from "../../lib/types/payment";
+import {
+  useGenerateTransactionReference,
+  useVerifyTransaction,
+} from "../../lib/hooks/transaction";
+import ModalComponent from "../micro/modal";
+import { IoBagCheckSharp } from "react-icons/io5";
+import { RiCloseLargeLine, RiHourglass2Fill } from "react-icons/ri";
 
 const Cart = () => {
   const navigate = useNavigate();
   const clientId = getCurrentUser();
-  const { data } = useClient(clientId);
-  const { cart, removeFromCart, updateCart } = useCartStore();
+  const { data: userDetails } = useClient(clientId);
+  const [searchParams] = useSearchParams();
+  const reference = searchParams.get("reference");
+  const { data: transaction } = useVerifyTransaction(reference);
+  const { cart, removeFromCart, updateCart, clearCart } = useCartStore();
+  const { mutate: generateTransactionReference, isPending } =
+    useGenerateTransactionReference();
+
   const handleIncreaseQuantity = (product: ProductType) => {
     updateCart(product, product.quantity + 1);
   };
@@ -47,19 +58,30 @@ const Cart = () => {
     return subTotal + deliveryCharge - discount;
   }, [subTotal, discount]);
 
-  const config: PaystackProps = {
-    reference: new Date().getTime().toString(),
-    email: data?.user?.email ?? "",
-    amount: total * 1500 * 100,
-    publicKey: import.meta.env.VITE_KEY_PAYSTACK_PUBLIC_KEY,
+  const handleCheckout = () => {
+    if (!getCurrentToken()) {
+      return navigate("/login");
+    }
+    const products = cart.map(({ _id, name, quantity, price }) => ({
+      _id,
+      name,
+      quantity,
+      price,
+    }));
+    const amount = total * 1500;
+    generateTransactionReference(
+      { email: userDetails?.user?.email, amount, products },
+      {
+        onSuccess: (data) => {
+          window.location.href = data.data.authorization_url;
+        },
+      }
+    );
   };
 
-  const initializePayment = usePaystackPayment(config);
-  const onSuccess = () => {
-    toast.success("Payment successfully completed");
-  };
-  const onClose = () => {
-    toast.error("Your order was cancelled");
+  const handleClose = () => {
+    clearCart();
+    navigate("/shop", { replace: true });
   };
 
   return (
@@ -139,18 +161,66 @@ const Cart = () => {
               className="mt-5 w-full"
               size="l"
               dark
-              isLoading={!total}
-              onClick={() =>
-                getCurrentToken()
-                  ? initializePayment({ onSuccess, onClose })
-                  : navigate("/login")
-              }
+              isLoading={!total || isPending}
+              onClick={handleCheckout}
             >
               Go to Checkout
             </Button>
           </div>
         </section>
       </div>
+      <ModalComponent
+        title="Payment Status"
+        open={!!transaction}
+        handleClose={handleClose}
+      >
+        <div className="flex justify-center items-center">
+          {transaction?.status === "success" && (
+            <div className="flex flex-col justify-center space-y-2">
+              <IoBagCheckSharp className="text-5xl text-green-700 w-full" />
+
+              <p className="text-sm text-center">
+                Your order was successfully processed. You can check your orders
+                to track the delivery process. Thank you for shopping with us!
+              </p>
+
+              <div className="flex justify-center my-3">
+                <Button>Track orders</Button>
+              </div>
+            </div>
+          )}
+
+          {transaction?.status === "failed" && (
+            <div className="flex flex-col justify-center space-y-2">
+              <RiCloseLargeLine className="text-5xl text-red-700 w-full" />
+
+              <p className="text-sm text-center">
+                Your payment failed. Please try again or contact support if the
+                issue persists.
+              </p>
+
+              <div className="flex justify-center my-3">
+                <Button>Track orders</Button>
+              </div>
+            </div>
+          )}
+
+          {transaction?.status === "pending" && (
+            <div className="flex flex-col justify-center space-y-2">
+              <RiHourglass2Fill className="text-5xl text-amber-400 w-full" />
+
+              <p className="text-sm text-center">
+                Your payment is currently being processed. Please wait a moment
+                and refresh the page, or check your email for updates.
+              </p>
+
+              <div className="flex justify-center my-3">
+                <Button>Track orders</Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </ModalComponent>
     </section>
   );
 };

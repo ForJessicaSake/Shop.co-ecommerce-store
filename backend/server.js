@@ -10,10 +10,13 @@ import newsLetterRouter from "./routes/newsletter.js";
 import reviewRouter from "./routes/review.js";
 import clientAuthRouter from "./routes/auth/client.js";
 import adminAuthRouter from "./routes/auth/admin.js";
+import paymentRouter from "./routes/payment.js";
+import transactionRouter from "./routes/transaction.js";
 import session from "express-session";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { authenticateRequest } from "./controllers/auth/global.js";
+import { handlePaystackWebhook } from "./controllers/services/payment/paystack.js";
 
 const app = express();
 app.use(
@@ -77,7 +80,15 @@ app.use("/auth/api/products", authenticateRequest, router);
 app.use("/api", newsLetterRouter);
 app.use("/api", reviewRouter);
 app.use("/auth/api", clientAuthRouter);
+app.use("/auth/api", authenticateRequest, paymentRouter);
+app.use("/auth/api", transactionRouter);
 app.use("/auth/api/admin", adminAuthRouter);
+app.use("/auth/api/admin", authenticateRequest, transactionRouter);
+app.post(
+  "/webhook/paystack",
+  express.raw({ type: "application/json" }),
+  handlePaystackWebhook
+);
 
 app.use((err, req, res, next) => {
   const { message, status } = err;

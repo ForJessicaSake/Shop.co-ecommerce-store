@@ -3,14 +3,10 @@ import { IoClose } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { toast } from "sonner";
-import TextInput from "../micro/inputs/input";
-import { BsSearch } from "react-icons/bs";
 import Button from "../micro/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
-
   const navigate = useNavigate();
   const handleLogOut = () => {
     localStorage.clear();
@@ -27,8 +23,13 @@ const Navbar = () => {
           >
             SHOP.CO
           </Link>
+          <ul>
+            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+              <Link to="/transactions">Transactions</Link>
+            </li>
+          </ul>
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           {!searchValue && (
             <div className="inset-y-0 absolute left-4 top-4">
               <BsSearch className="text-black/40" />
@@ -40,7 +41,7 @@ const Navbar = () => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="space-x-5">
           <Button
             size="s"

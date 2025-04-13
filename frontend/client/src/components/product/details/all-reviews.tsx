@@ -55,17 +55,20 @@ const AllReviews = () => {
     setShowModal(true);
   };
   const handleClose = () => setShowModal(false);
-
   return (
     <section className="mt-10">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-center justify-between">
-        <p className="text-xl font-bold">All Reviews</p>
-        <Button dark size="m" onClick={handleOpen}>
-          Write a Review
-        </Button>
+      <div className="flex flex-col-reverse gap-2 sm:flex-row w-full sm:items-center justify-between">
+        {productReviews?.length > 0 && (
+          <p className="text-xl font-bold w-full">All Reviews</p>
+        )}
+        <div className="flex w-full justify-end items-end">
+          <Button dark size="m" onClick={handleOpen}>
+            Write a Review
+          </Button>
+        </div>
       </div>
 
-      {productReviews ? (
+      {productReviews?.length > 0 && (
         <div className="w-full grid md:grid-cols-2 gap-5 mt-5">
           {productReviews?.map((review: ProductReviewType) => (
             <ReviewCard
@@ -77,8 +80,6 @@ const AllReviews = () => {
             />
           ))}
         </div>
-      ) : (
-        <p>No Reviews</p>
       )}
       <ModalComponent
         title="Write a Review"

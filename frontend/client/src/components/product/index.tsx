@@ -30,9 +30,9 @@ const Products = () => {
   return (
     <section className="mx-auto container px-8 lg:px-16">
       <Breadcrumbs crumbs={[{ title: "Home", link: "/" }, { title: "Shop" }]} />
-      <div className="flex md:flex-row flex-col gap-5 pt-5">
+      <div className="flex lg:flex-row flex-col gap-5 pt-5">
         {showFilter && (
-          <div className="border border-black/10 rounded-xl md:max-w-[295px] w-full h-fit p-4">
+          <div className="border border-black/10 rounded-xl sm:max-w-[295px] w-full h-fit p-4">
             <div className="flex items-center justify-between">
               <p className=" font-bold">Filters</p>
               <MdOutlineFilterList
@@ -168,7 +168,7 @@ const Products = () => {
                 </p>
               </div>
             ) : (
-              <div className="w-full grid grid-cols-1 place-items-center sm:place-items-start sm:grid-cols-2 xl:grid-cols-3 gap-10">
+              <div className="w-full grid grid-cols-1 place-items-center sm:place-items-start md:grid-cols-2 xl:grid-cols-3 gap-20">
                 {products?.map((product, index) => (
                   <Product key={index} product={product} />
                 ))}

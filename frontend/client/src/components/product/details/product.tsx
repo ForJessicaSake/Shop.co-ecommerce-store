@@ -11,7 +11,7 @@ import { toast } from "sonner";
 const Product = () => {
   const { id } = useParams();
   const { data: product, isLoading } = useGetProductDetails(id);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const { addToCart, cart } = useCartStore();
   const handleIncreaseCount = () => setCount((prev) => prev + 1);
   const handleDecreaseCount = () => {

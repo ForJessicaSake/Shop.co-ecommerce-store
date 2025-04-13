@@ -66,7 +66,10 @@ const Product = () => {
           </Button>
           <Button
             size="l"
-            onClick={deleteProductMutation}
+            onClick={() => {
+              alert("Are you sure you want to delete this product?");
+              deleteProductMutation();
+            }}
             isLoading={isPending}
             dark
           >
