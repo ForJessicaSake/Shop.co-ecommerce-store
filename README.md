@@ -26,6 +26,14 @@
 
 ## ⚙️ Features
 
+### Backend Application 
+- Secure login and access control for both clients and admins.
+- CRUD (Create, Read, Update, Delete) API endpoints for managing product inventory.
+- Endpoints for creating and retrieving product reviews.
+- Endpoints to access payment details.
+- Integration with Paystack for processing payments, including webhook support for real-time updates.
+- Endpoint for newsletter subscription.
+
 ### Client Application
 - Browse products with filtering and search
 - Add to cart and checkout
@@ -33,11 +41,12 @@
 - Payment integration via Paystack
 
 ### Admin Application
+- Secure login and signup
 - Product and inventory management
+- Transaction management
 
 ---
 
 ### Coming soon 
-- Integrate Payment webhooks
-- Order tracking and Payment status updates 
+- Order tracking 
 - User management
