@@ -11,7 +11,7 @@ export const initializePaystackTransaction = async (req, res, next) => {
       email,
       amount: Number(amount),
       products,
-      status: "PENDING",
+      status: "AWAITING_PAYMENT",
     });
     await transaction.save();
 

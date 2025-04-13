@@ -9,7 +9,7 @@ const transactionSchema = mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["FAILED", "SUCCESSFUL", "PENDING"],
+    enum: ["FAILED", "SUCCESSFUL", "PENDING", "AWAITING_PAYMENT"],
     required: [true, "status is required"],
   },
   transactionDate: { type: Date },

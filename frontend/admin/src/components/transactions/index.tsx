@@ -60,6 +60,7 @@ const Transactions = () => {
                     "bg-green-700/80": transaction.status === "SUCCESSFUL",
                     "bg-amber-400/70": transaction.status === "PENDING",
                     "bg-red-500/70": transaction.status === "FAILED",
+                    "bg-blue-500/70": transaction.status === "AWAITING_PAYMENT",
                   })}
                 >
                   {transaction.status}
