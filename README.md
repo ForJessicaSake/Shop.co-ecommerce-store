@@ -10,7 +10,7 @@
   For browsing products, managing carts, and placing orders.
 
 - **Admin Application**: [https://shop-co-ecommerce-store-admin.vercel.app](https://shop-co-ecommerce-store-admin.vercel.app)  
-  For managing inventory, orders, and customer data.
+  For managing inventory & orders.
 
 ---
 
@@ -20,7 +20,7 @@
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose
 - **Authentication**: JWT
 - **Payments**: Paystack
-- **Deployment**: Vercel
+- **Deployment**: Vercel & Railway
 
 ---
 
