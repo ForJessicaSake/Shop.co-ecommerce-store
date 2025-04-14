@@ -19,7 +19,7 @@ const Orders = () => {
 
       <div className="mt-5 flex flex-col lg:flex-row lg:justify-between gap-5 w-full">
         <section className="w-full rounded-xl space-y-5 p-5 border border-black/10">
-          {orders.length > 0 ? (
+          {orders?.length > 0 ? (
             <>
               {orders?.map((order: ProductType) => (
                 <div key={order._id}>
