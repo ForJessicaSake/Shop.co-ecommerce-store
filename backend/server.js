@@ -12,6 +12,7 @@ import clientAuthRouter from "./routes/auth/client.js";
 import adminAuthRouter from "./routes/auth/admin.js";
 import paymentRouter from "./routes/payment.js";
 import transactionRouter from "./routes/transaction.js";
+import orderRouter from "./routes/order.js";
 import session from "express-session";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
@@ -82,6 +83,7 @@ app.use("/api", reviewRouter);
 app.use("/auth/api", clientAuthRouter);
 app.use("/auth/api", authenticateRequest, paymentRouter);
 app.use("/auth/api", transactionRouter);
+app.use("/auth/api", orderRouter);
 app.use("/auth/api/admin", adminAuthRouter);
 app.use("/auth/api/admin", authenticateRequest, transactionRouter);
 app.post(

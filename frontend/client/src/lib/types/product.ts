@@ -9,4 +9,5 @@ export type ProductType = {
   discount?: number;
   rating?: number;
   topSelling?: boolean;
+  transactionDate?: string;
 };

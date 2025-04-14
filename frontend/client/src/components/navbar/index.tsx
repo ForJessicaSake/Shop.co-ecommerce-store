@@ -26,7 +26,7 @@ const Navbar = () => {
               <Link to="/shop">Shop</Link>
             </li>
             <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-              <a href="#orders">Orders</a>
+              <Link to="/orders">Orders</Link>
             </li>
             <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
               <a href="#newsLetter">Newsletter</a>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 <Link to="/shop">Shop</Link>
               </li>
               <li>
-                <a href="#orders">Orders</a>
+                <Link to="/orders">Orders</Link>
               </li>
               <li>
                 <a href="#newsLetter">NewsLetter</a>

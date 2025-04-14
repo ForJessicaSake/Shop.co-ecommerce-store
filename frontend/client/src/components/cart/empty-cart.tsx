@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import emptyCart from "../../assets/images/cart.png";
 const EmptyCart = () => {
   return (
@@ -5,8 +6,10 @@ const EmptyCart = () => {
       <img src={emptyCart} alt="empty cart" />
       <p className="font-medium text-lg">Your cart is empty</p>
       <p className="max-w-sm text-sm">
-        Looks like you haven&apos;t added anything to your cart yet. Go ahead &
-        explore top categories.
+        Looks like you haven&apos;t added anything to your cart yet. Go ahead &{" "}
+        <span className="underline">
+          <Link to="/shop">explore top categories.</Link>
+        </span>
       </p>
     </div>
   );

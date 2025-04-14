@@ -9,7 +9,7 @@ import { useCartStore } from "../store";
 import EmptyCart from "./empty-cart";
 import { ProductType } from "../../lib/types";
 import { toast } from "sonner";
-import { useNavigate, useSearchParams } from "react-router";
+import { Link, useNavigate, useSearchParams } from "react-router";
 import { getCurrentToken, getCurrentUser } from "../../lib/api-client";
 import { useClient } from "../../lib/hooks";
 import {
@@ -180,12 +180,14 @@ const Cart = () => {
               <IoBagCheckSharp className="text-5xl text-green-700 w-full" />
 
               <p className="text-sm text-center">
-                Your order was successfully processed. You can check your orders
+                Your order was successfully processed. You can view your orders
                 to track the delivery process. Thank you for shopping with us!
               </p>
 
               <div className="flex justify-center my-3">
-                <Button>Track orders</Button>
+                <Link to="/orders">
+                  <Button>View orders</Button>
+                </Link>
               </div>
             </div>
           )}
@@ -200,7 +202,9 @@ const Cart = () => {
               </p>
 
               <div className="flex justify-center my-3">
-                <Button>Track orders</Button>
+                <Link to="/orders">
+                  <Button>View orders</Button>
+                </Link>{" "}
               </div>
             </div>
           )}
@@ -215,7 +219,9 @@ const Cart = () => {
               </p>
 
               <div className="flex justify-center my-3">
-                <Button>Track orders</Button>
+                <Link to="/orders">
+                  <Button>View orders</Button>
+                </Link>{" "}
               </div>
             </div>
           )}

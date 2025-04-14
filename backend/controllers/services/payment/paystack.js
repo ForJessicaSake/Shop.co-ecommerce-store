@@ -4,6 +4,7 @@ import { Paystack } from "../../../services/paystack.js";
 
 export const initializePaystackTransaction = async (req, res, next) => {
   const reference = generateReference();
+  console.log(req.user);
   try {
     const { amount, email, products } = req.body;
     const transaction = new Transaction({
@@ -12,11 +13,15 @@ export const initializePaystackTransaction = async (req, res, next) => {
       amount: Number(amount),
       products,
       status: "AWAITING_PAYMENT",
+      userId: req?.user?.userId,
     });
     await transaction.save();
 
     const clientBaseUrl =
-      process.env.FRONTENDCLIENTURL || "http://localhost:5173";
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:5173"
+        : process.env.FRONTENDCLIENTURL;
+
     const callbackUrl = `${clientBaseUrl}/cart`;
 
     const paystack = await Paystack.transaction.initialize({

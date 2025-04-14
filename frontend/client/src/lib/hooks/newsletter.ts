@@ -8,7 +8,7 @@ export const useSubscribeToNewsLetter = () => {
     mutationFn: (payload: NewsLetterPayload) =>
       apiClient.post("/api/newsletter", payload),
     onSuccess: () =>
-      toast.success("Subscription successful! Check your inbox for updates."),
+      toast.success("Subscription to newsletter was successful!"),
     onError: () => toast.error("Subscription failed. Please try again."),
   });
 };
