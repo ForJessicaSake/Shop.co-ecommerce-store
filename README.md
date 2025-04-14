@@ -1,16 +1,16 @@
 # 🛍️ shop.co — Ecommerce Store
 
-**shop.co** is an ecommerce application built to provide a seamless shopping experience for users and administrators.
+**shop.co** is an ecommerce application 
 
 ---
 
 ## 🔗 Live Applications
 
 - **Client Application**: [https://shop-co-ecommerce-store.vercel.app](https://shop-co-ecommerce-store.vercel.app)  
-  For browsing products, managing carts, and placing orders.
+  For browsing products, managing carts, making purchasees and viewing orders.
 
 - **Admin Application**: [https://shop-co-ecommerce-store-admin.vercel.app](https://shop-co-ecommerce-store-admin.vercel.app)  
-  For managing inventory & orders.
+  For managing inventory & transactions.
 
 ---
 
@@ -18,7 +18,6 @@
 
 - **Frontend**: React, TypeScript, Tailwind CSS, React Query, Zustand
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose
-- **Authentication**: JWT
 - **Payments**: Paystack
 - **Deployment**: Vercel & Railway
 
@@ -39,6 +38,7 @@
 - Add to cart and checkout
 - Secure login and signup
 - Payment integration via Paystack
+- View ordered items
 
 ### Admin Application
 - Secure login and signup
@@ -46,7 +46,3 @@
 - Transaction management
 
 ---
-
-### Coming soon 
-- Order tracking 
-- User management
