@@ -34,7 +34,7 @@
 - Endpoint for newsletter subscription.
 
 ### Client Application
-- Browse products with filtering and search
+- Browse products with filters
 - Add to cart and checkout
 - Secure login and signup
 - Payment integration via Paystack
