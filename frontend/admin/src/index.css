@@ -14,6 +14,7 @@ body {
     /* font-family: "Satoshi"; */
     font-family: "Poppins", serif;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 @font-face {

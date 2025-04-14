@@ -120,9 +120,11 @@ const EditProduct = () => {
             ]}
           ></SelectInput>
         </div>
-        <Button isLoading={isPending} size="l" className="w-full" dark>
-          Add Product
-        </Button>
+        <div className="flex justify-center">
+          <Button isLoading={isPending} size="l" className="max-w-sm my-5" dark>
+            Edit Product
+          </Button>
+        </div>
       </form>
     </section>
   );

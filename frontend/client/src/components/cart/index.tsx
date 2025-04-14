@@ -149,7 +149,7 @@ const Cart = () => {
               <p className="font-bold text-[#FF3333]">{discount}</p>
             </div>
             <div className="flex justify-between">
-              <p className="text-black/60">Delivery Fee</p>
+              <p className="text-black/60">Delivery fee</p>
               <p className="font-bold">${deliveryCharge}</p>
             </div>
             <div className="border border-black/5"></div>

@@ -40,7 +40,7 @@ const TopSelling = () => {
           </div>
         ) : (
           <div className="flex pb-5 gap-5 overflow-x-auto justify-center lg:overflow-hidden md:grid md:grid-cols-2 xl:grid-cols-3 md:place-items-center">
-            {products?.slice(4, 7).map((product, index) => (
+            {products?.slice(3, 6).map((product, index) => (
               <Product key={index} product={product} />
             ))}
           </div>
