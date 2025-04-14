@@ -25,10 +25,10 @@ import { ProductType } from "../../../lib/types";
 
 const AllReviews = () => {
   const { id } = useParams();
+  const { data: orders } = useGetOrders();
   const [showModal, setShowModal] = useState(false);
   const { mutate: createProductReviewMutation, isPending } =
     useCreateProductReview();
-  const { data: orders } = useGetOrders();
   const { data: product } = useGetProductDetails(id);
   const { data: productReviews } = useGetProductReviews(id);
   const {
@@ -52,12 +52,12 @@ const AllReviews = () => {
   };
 
   const handleOpen = () => {
-    const hasOrderedProduct = orders?.some(
-      (order: ProductType) => order._id === product?._id
-    );
     if (!getCurrentToken()) {
       return toast.error("You must be logged in to write a review");
     }
+    const hasOrderedProduct = orders?.some(
+      (order: ProductType) => order._id === product?._id
+    );
     if (!hasOrderedProduct) {
       return toast.error(
         "You must have ordered this product to write a review"

@@ -185,9 +185,14 @@ const Cart = () => {
               </p>
 
               <div className="flex justify-center my-3">
-                <Link to="/orders">
-                  <Button>View orders</Button>
-                </Link>
+                <Button
+                  onClick={() => {
+                    clearCart();
+                    navigate("/orders", { replace: true });
+                  }}
+                >
+                  View orders
+                </Button>
               </div>
             </div>
           )}

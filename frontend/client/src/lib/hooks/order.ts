@@ -7,5 +7,6 @@ export const useGetOrders = () => {
     queryKey: ["orders"],
     queryFn: () =>
       apiClient.get(`/auth/api/orders/${userId}`).then((res) => res.data.data),
+    enabled: !!userId,
   });
 };
