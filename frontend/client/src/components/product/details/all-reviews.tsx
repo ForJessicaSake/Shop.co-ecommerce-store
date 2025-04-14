@@ -20,12 +20,15 @@ import { useParams } from "react-router";
 import { toast } from "sonner";
 import { getCurrentToken } from "../../../lib/api-client";
 import Rating from "@mui/material/Rating";
+import { useGetOrders } from "../../../lib/hooks/order";
+import { ProductType } from "../../../lib/types";
 
 const AllReviews = () => {
   const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
   const { mutate: createProductReviewMutation, isPending } =
     useCreateProductReview();
+  const { data: orders } = useGetOrders();
   const { data: product } = useGetProductDetails(id);
   const { data: productReviews } = useGetProductReviews(id);
   const {
@@ -49,12 +52,22 @@ const AllReviews = () => {
   };
 
   const handleOpen = () => {
+    const hasOrderedProduct = orders?.some(
+      (order: ProductType) => order._id === product?._id
+    );
     if (!getCurrentToken()) {
       return toast.error("You must be logged in to write a review");
     }
+    if (!hasOrderedProduct) {
+      return toast.error(
+        "You must have ordered this product to write a review"
+      );
+    }
     setShowModal(true);
   };
+
   const handleClose = () => setShowModal(false);
+
   return (
     <section className="mt-10">
       <div className="flex flex-col-reverse gap-2 sm:flex-row w-full sm:items-center justify-between">
