@@ -39,6 +39,7 @@
 - Add to cart and checkout
 - Secure login and signup
 - Payment integration via Paystack
+- View ordered items
 
 ### Admin Application
 - Secure login and signup
@@ -46,7 +47,3 @@
 - Transaction management
 
 ---
-
-### Coming soon 
-- Order tracking 
-- User management
