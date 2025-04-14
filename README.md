@@ -18,7 +18,6 @@
 
 - **Frontend**: React, TypeScript, Tailwind CSS, React Query, Zustand
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose
-- **Authentication**: JWT
 - **Payments**: Paystack
 - **Deployment**: Vercel & Railway
 
