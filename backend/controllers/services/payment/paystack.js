@@ -3,8 +3,8 @@ import Transaction from "../../../models/transaction.js";
 import { Paystack } from "../../../services/paystack.js";
 
 export const initializePaystackTransaction = async (req, res, next) => {
+  console.log(process.env.NODE_ENV);
   const reference = generateReference();
-  console.log(req.user);
   try {
     const { amount, email, products } = req.body;
     const transaction = new Transaction({
