@@ -7,10 +7,10 @@
 ## 🔗 Live Applications
 
 - **Client Application**: [https://shop-co-ecommerce-store.vercel.app](https://shop-co-ecommerce-store.vercel.app)  
-  For browsing products, managing carts, and placing orders.
+  For browsing products, managing carts, making purchasees and viewing orders.
 
 - **Admin Application**: [https://shop-co-ecommerce-store-admin.vercel.app](https://shop-co-ecommerce-store-admin.vercel.app)  
-  For managing inventory & orders.
+  For managing inventory & transactions.
 
 ---
 
