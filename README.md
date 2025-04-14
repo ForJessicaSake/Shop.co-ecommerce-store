@@ -1,6 +1,6 @@
 # 🛍️ shop.co — Ecommerce Store
 
-**shop.co** is an ecommerce application built to provide a seamless shopping experience for users and administrators.
+**shop.co** is an ecommerce application 
 
 ---
 
