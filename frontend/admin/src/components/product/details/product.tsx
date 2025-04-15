@@ -5,13 +5,27 @@ import {
   useDeleteProduct,
 } from "../../../lib/hooks/product";
 import { useNavigate, useParams } from "react-router";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 
 const Product = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { mutate: deleteProductMutation, isPending } = useDeleteProduct(id);
   const { data: product, isLoading } = useGetProductDetails(id);
-
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   if (isLoading || !product) return <Spinner />;
   return (
     <section className="flex flex-col lg:flex-row gap-5 mt-10">
@@ -64,17 +78,37 @@ const Product = () => {
           >
             Edit Product
           </Button>
-          <Button
-            size="l"
-            onClick={() => {
-              alert("Are you sure you want to delete this product?");
-              deleteProductMutation();
-            }}
-            isLoading={isPending}
-            dark
-          >
+          <Button size="l" onClick={handleClickOpen} isLoading={isPending} dark>
             Delete Product
           </Button>
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle>Delete Product</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Are you sure you would like to delete this product?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions className="">
+              <Button size="s" onClick={handleClose}>
+                No
+              </Button>
+              <Button
+                size="s"
+                onClick={() => {
+                  deleteProductMutation();
+                  handleClose();
+                }}
+                dark
+              >
+                Yes
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
         <div className="border border-black/5"></div>
       </div>

@@ -6,7 +6,7 @@ import { adminAuth } from "../../lib/hooks";
 const Dashboard = () => {
   const { data, isLoading } = useGetAllProducts();
   return (
-    <section className="overflow-hidden">
+    <section className="overflow-hidden w-full">
       <div className="flex sm:flex-row flex-col gap-5 justify-between items-center my-10">
         <h1 className="text-2xl font-bold">All Products</h1>
         <Link to="/product/new">
@@ -27,7 +27,10 @@ const Dashboard = () => {
               />
             ))
           : data?.map((product) => (
-              <div className="min-w-48 sm:w-72 bg-white rounded-2xl shadow-md overflow-hidden flex flex-col justify-between transition-transform hover:scale-105">
+              <div
+                key={product._id}
+                className="min-w-48 sm:w-72 bg-white rounded-2xl shadow-md overflow-hidden flex flex-col justify-between transition-transform hover:scale-105"
+              >
                 <Link to={`/product/details/${product._id}`}>
                   <img
                     src={product.image}

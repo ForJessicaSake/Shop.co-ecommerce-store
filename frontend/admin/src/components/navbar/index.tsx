@@ -6,8 +6,8 @@ import { toast } from "sonner";
 import Button from "../micro/button";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const handleLogOut = () => {
     localStorage.clear();
     toast.success("You have been logged out.");
@@ -73,6 +73,7 @@ const Navbar = () => {
                 />
               )}
             </div>
+
             <Link className="font-[Integral-CF] font-extrabold text-lg" to="/">
               SHOP.CO
             </Link>
@@ -85,6 +86,19 @@ const Navbar = () => {
           >
             Login
           </Button>
+        </div>
+        <div className="mt-5 bg-white pl-8">
+          {isOpen && (
+            <ul className="cursor-pointer space-y-5">
+              <li>
+                <Link to="/">Products</Link>
+              </li>
+              <li>
+                <Link to="/transactions">Transactions</Link>
+              </li>
+              <li onClick={handleLogOut}>Logout</li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>

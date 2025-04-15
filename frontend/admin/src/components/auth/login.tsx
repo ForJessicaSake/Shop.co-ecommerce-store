@@ -23,7 +23,7 @@ const Login = () => {
     loginMutation(data);
   };
   return (
-    <section className="my-10 flex justify-center items-center">
+    <section className="my-10 flex justify-center items-center w-full">
       <form
         className="w-full rounded-xl p-5 max-w-lg shadow-lg"
         onSubmit={handleSubmit(onSubmit)}

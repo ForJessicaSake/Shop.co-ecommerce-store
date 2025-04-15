@@ -1,12 +1,20 @@
 import { PropsWithChildren } from "react";
 import Navbar from "../navbar";
+import Sidebar from "../navigation/sidebar";
 
 type LayoutProps = PropsWithChildren<{}>;
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <main className="overflow-x-hidden px-8 lg:px-16 container">
-      <Navbar />
-      {children}
+    <main className="overflow-x-hidden container px-8 lg:px-0">
+      <div className="lg:hidden block">
+        <Navbar />
+      </div>
+      <div className="flex flex-row gap-5">
+        <div className="hidden lg:block">
+          <Sidebar />
+        </div>
+        {children}
+      </div>
     </main>
   );
 };

@@ -13,7 +13,12 @@ import dayjs from "dayjs";
 
 const Transactions = () => {
   const { data: transactions, isLoading } = useGetTransactions();
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <div className="w-full flex items-center justify-center">
+        <Spinner />
+      </div>
+    );
   return (
     <div className="mt-10">
       <h1 className="text-2xl mb-5 font-bold">All Transactions</h1>

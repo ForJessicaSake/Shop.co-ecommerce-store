@@ -35,7 +35,7 @@ const NewProduct = () => {
   };
 
   return (
-    <section className="my-10 flex justify-center items-center">
+    <section className="my-10 flex justify-center items-center w-full">
       <form
         onSubmit={handleSubmit(_onSubmit)}
         className="w-full space-y-10 rounded-xl p-5 max-w-3xl shadow-lg"
