@@ -16,7 +16,7 @@ export function clientAuth<T extends {}>(
 
     useEffect(() => {
       if (token && location.pathname === "/login") {
-        navigate("/");
+        navigate("/shop");
       }
     }, [navigate, authenticated, token]);
 
