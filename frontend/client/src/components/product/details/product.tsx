@@ -59,8 +59,8 @@ const Product = () => {
           )}
         </p>
         <p className="max-w-lg">
-          This graphic t-shirt which is perfect for any occasion. Crafted from a
-          soft and breathable fabric, it offers superior comfort and style.
+          Perfect for any occasion. Crafted from a soft and breathable fabric,
+          it offers superior comfort and style.
         </p>
 
         <div className="border border-black/5"></div>
