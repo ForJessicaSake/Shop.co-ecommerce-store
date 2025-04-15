@@ -12,6 +12,8 @@
 - **Admin Application**: [https://shop-co-ecommerce-store-admin.vercel.app](https://shop-co-ecommerce-store-admin.vercel.app)  
   For managing inventory & transactions.
 
+- **Swagger API Documentation**: [https://shopco-ecommerce-store-production.up.railway.app/api-docs](https://shopco-ecommerce-store-production.up.railway.app/api-docs)
+
 ---
 
 ## 🧱 Tech Stack
