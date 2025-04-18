@@ -37,7 +37,8 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401 || error.response?.status === 403) {
       toast.error("Your session has expired. Please log in again.");
       window.location.href = "/login";
-      localStorage.clear();
+      localStorage.removeItem("token");
+      localStorage.removeItem("client_id");
     }
     return Promise.reject(error);
   }
