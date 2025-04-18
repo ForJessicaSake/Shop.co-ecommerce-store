@@ -7,7 +7,7 @@ export const useGetTransactions = () => {
     queryKey: ["transactions"],
     queryFn: () =>
       apiClient
-        .get("/auth/api/admin/transactions")
+        .get("/api/auth/admin/transactions")
         .then((res) => res.data.data),
   });
 };

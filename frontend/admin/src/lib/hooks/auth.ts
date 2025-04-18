@@ -8,7 +8,7 @@ export const useCreateAdminAccount = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: (payload: AdminUserType) =>
-      apiClient.post("/auth/api/admin/signup", JSON.stringify(payload)),
+      apiClient.post("/api/auth/admin/signup", JSON.stringify(payload)),
     onSuccess: () => {
       toast.success("Account created successfully");
       navigate("/admin/login");
@@ -22,7 +22,7 @@ export const useLoginAdminAccount = () => {
   return useMutation({
     mutationFn: (payload: AdminUserType) =>
       apiClient
-        .post("/auth/api/admin/login", JSON.stringify(payload))
+        .post("/api/auth/admin/login", JSON.stringify(payload))
         .then((res) => res.data.data),
     onSuccess: (data) => {
       toast.success("Login successful");

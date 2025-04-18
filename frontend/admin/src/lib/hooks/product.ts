@@ -8,7 +8,7 @@ export const useGetAllProducts = () => {
   return useQuery<ProductType[]>({
     queryKey: ["products"],
     queryFn: () =>
-      apiClient.get(`/auth/api/products`).then((res) => res.data.data),
+      apiClient.get(`/api/auth/products`).then((res) => res.data.data),
   });
 };
 
@@ -16,7 +16,7 @@ export const useGetProductDetails = (id?: string) => {
   return useQuery<ProductType>({
     queryKey: ["product-details", id],
     queryFn: () =>
-      apiClient.get(`/auth/api/products/${id}`).then((res) => res.data.data),
+      apiClient.get(`/api/auth/products/${id}`).then((res) => res.data.data),
     enabled: !!id,
   });
 };
@@ -26,7 +26,7 @@ export const useCreateProduct = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (payload: ProductType) => {
-      return apiClient.post("/auth/api/products", JSON.stringify(payload));
+      return apiClient.post("/api/auth/products", JSON.stringify(payload));
     },
 
     onSuccess: () => {
@@ -43,7 +43,7 @@ export const useUpdateProduct = (id?: string) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (payload: ProductType) =>
-      apiClient.patch(`/auth/api/products/${id}`, JSON.stringify(payload)),
+      apiClient.patch(`/api/auth/products/${id}`, JSON.stringify(payload)),
     onSuccess: () => {
       toast.success("Product updated successfully");
       queryClient.invalidateQueries({ queryKey: ["products"] });
@@ -57,7 +57,7 @@ export const useDeleteProduct = (id?: string) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: () => apiClient.delete(`/auth/api/products/${id}`),
+    mutationFn: () => apiClient.delete(`/api/auth/products/${id}`),
     onSuccess: () => {
       navigate("/");
       toast.success("Product deleted successfully");

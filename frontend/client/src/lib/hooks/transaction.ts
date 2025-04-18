@@ -6,7 +6,7 @@ import { GenerateTransactionReferencePayloadProps } from "../types";
 export const useGenerateTransactionReference = () => {
   return useMutation({
     mutationFn: (payload: GenerateTransactionReferencePayloadProps) =>
-      apiClient.post("/auth/api/initilizeTransaction", payload),
+      apiClient.post("/api/auth/initilizeTransaction", payload),
     onSuccess: () => {
       toast.success("Reference generated successfully");
     },
@@ -21,7 +21,7 @@ export const useVerifyTransaction = (reference: string | null) => {
     queryKey: ["verify-transaction", reference],
     queryFn: () =>
       apiClient
-        .get(`/auth/api/verifyTransaction/${reference}`)
+        .get(`/api/auth/verifyTransaction/${reference}`)
         .then((res) => res.data.data),
     enabled: !!reference,
   });

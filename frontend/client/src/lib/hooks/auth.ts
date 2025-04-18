@@ -9,7 +9,7 @@ export const useCreateClientAccount = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: (payload: UserType) =>
-      apiClient.post("/auth/api/signup", JSON.stringify(payload)),
+      apiClient.post("/api/auth/signup", JSON.stringify(payload)),
     onSuccess: () => {
       toast.success("Account created successfully");
       navigate("/login");
@@ -23,7 +23,7 @@ export const useLoginClientAccount = () => {
   return useMutation({
     mutationFn: (payload: UserType) =>
       apiClient
-        .post("/auth/api/login", JSON.stringify(payload))
+        .post("/api/auth/login", JSON.stringify(payload))
         .then((res) => res.data.data),
     onSuccess: (data) => {
       toast.success("Login successful");
@@ -39,7 +39,7 @@ export const useClient = (id?: string) => {
   return useQuery({
     queryKey: ["client-details"],
     queryFn: () =>
-      apiClient.get(`/auth/api/client/${id}`).then((res) => res.data.data),
+      apiClient.get(`/api/auth/client/${id}`).then((res) => res.data.data),
     enabled: !!id,
   });
 };

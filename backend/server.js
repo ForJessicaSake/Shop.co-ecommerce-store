@@ -44,16 +44,16 @@ app.use(
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 app.use(express.json());
-app.use("/auth/api", clientAuthRouter);
-app.use("/auth/api/admin", adminAuthRouter);
+app.use("/api/auth", clientAuthRouter);
+app.use("/api/auth/admin", adminAuthRouter);
 app.use("/api", newsLetterRouter);
 app.use("/api/products", router);
-app.use("/auth/api", transactionRouter);
-app.use("/auth/api", orderRouter);
+app.use("/api/auth", transactionRouter);
+app.use("/api/auth", orderRouter);
 app.use("/api", reviewRouter);
-app.use("/auth/api", authenticateRequest, paymentRouter);
-app.use("/auth/api/products", authenticateRequest, router);
-app.use("/auth/api/admin", authenticateRequest, transactionRouter);
+app.use("/api/auth", authenticateRequest, paymentRouter);
+app.use("/api/auth/products", authenticateRequest, router);
+app.use("/api/auth/admin", authenticateRequest, transactionRouter);
 app.post(
   "/webhook/paystack",
   express.raw({ type: "application/json" }),

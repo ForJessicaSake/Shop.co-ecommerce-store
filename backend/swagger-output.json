@@ -5,11 +5,11 @@
     "title": " API",
     "description": ""
   },
-  "host": "localhost:5000",
+  "host": "https://shopco-ecommerce-store-production.up.railway.app",
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
-    "/auth/api/admin/signup": {
+    "/api/auth/admin/signup": {
       "post": {
         "tags": ["Admin Management"],
         "description": "",
@@ -46,7 +46,7 @@
         }
       }
     },
-    "/auth/api/admin/login": {
+    "/api/auth/admin/login": {
       "post": {
         "tags": ["Admin Management"],
         "description": "",
@@ -83,7 +83,7 @@
         }
       }
     },
-    "/auth/api/signup": {
+    "/api/auth/signup": {
       "post": {
         "tags": ["Client Management"],
         "description": "",
@@ -120,7 +120,7 @@
         }
       }
     },
-    "/auth/api/login": {
+    "/api/auth/login": {
       "post": {
         "tags": ["Client Management"],
         "description": "",
@@ -157,7 +157,7 @@
         }
       }
     },
-    "/auth/api/client/{id}": {
+    "/api/auth/client/{id}": {
       "get": {
         "tags": ["Client Management"],
         "description": "",
@@ -330,7 +330,7 @@
         }
       }
     },
-    "/auth/api/products/": {
+    "/api/auth/products/": {
       "get": {
         "tags": ["Product Management"],
         "description": "",
@@ -392,7 +392,7 @@
         }
       }
     },
-    "/auth/api/products/{id}": {
+    "/api/auth/products/{id}": {
       "get": {
         "tags": ["Product Management"],
         "description": "",
@@ -469,7 +469,7 @@
         }
       }
     },
-    "/auth/api/orders/{userId}": {
+    "/api/auth/orders/{userId}": {
       "get": {
         "tags": ["Order Management"],
 
@@ -544,7 +544,7 @@
         }
       }
     },
-    "/auth/api/initilizeTransaction": {
+    "/api/auth/initilizeTransaction": {
       "post": {
         "tags": ["Transaction Management"],
         "description": "",
@@ -581,7 +581,7 @@
         }
       }
     },
-    "/auth/api/verifyTransaction/{reference}": {
+    "/api/auth/verifyTransaction/{reference}": {
       "get": {
         "tags": ["Transaction Management"],
         "description": "",
@@ -648,7 +648,7 @@
         }
       }
     },
-    "/auth/api/transactions": {
+    "/aupi/auth/transactions": {
       "get": {
         "tags": ["Transaction Management"],
         "description": "",
@@ -665,7 +665,7 @@
         }
       }
     },
-    "/auth/api/admin/transactions": {
+    "/api/auth/admin/transactions": {
       "get": {
         "tags": ["Transaction Management"],
         "description": "",
