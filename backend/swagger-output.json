@@ -648,7 +648,7 @@
         }
       }
     },
-    "/aupi/auth/transactions": {
+    "/api/auth/transactions": {
       "get": {
         "tags": ["Transaction Management"],
         "description": "",
