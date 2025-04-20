@@ -34,7 +34,7 @@ const Login = () => {
         <h1 className="text-xl sm:text-3xl font-bold text-center">
           Welcome back, log in to continue
         </h1>
-        <div className="mt-10 space-y-10 flex flex-col items-center w-full max-w-lg text-sm">
+        <div className="mt-10 space-y-8 flex flex-col items-center w-full max-w-lg text-sm">
           <TextInput
             placeholder="Enter your email address"
             register={register("email")}
@@ -52,11 +52,22 @@ const Login = () => {
             Login
           </Button>
 
-          <div>
-            Don't have an account?{" "}
-            <span className="cursor-pointer text-black/60">
-              <a href="/signup">sign up</a>
-            </span>
+          <div className="space-y-2 text-sm text-black/80">
+            <div>
+              Don't have an account?{" "}
+              <a href="/signup" className="text-black/60 hover:underline">
+                Sign up
+              </a>
+            </div>
+            <div>
+              Forgot your password?{" "}
+              <a
+                href="/forgot-password"
+                className="text-black/60 hover:underline"
+              >
+                Reset it here
+              </a>
+            </div>
           </div>
         </div>
       </form>
