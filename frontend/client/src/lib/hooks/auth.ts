@@ -43,3 +43,14 @@ export const useClient = (id?: string) => {
     enabled: !!id,
   });
 };
+
+export const useForgotPassword = () => {
+  return useMutation({
+    mutationFn: (payload: { email: string }) =>
+      apiClient.post("/api/auth/forgotPassword", payload),
+    onSuccess: (data) => {
+      toast.success(data.data.message);
+    },
+    onError: (error: Error) => toast.error(error.response.data.message),
+  });
+};

@@ -10,6 +10,7 @@ import { Toaster } from "sonner";
 import Login from "./components/auth/client/login";
 import SignUp from "./components/auth/client/signup";
 import Orders from "./components/orders";
+import ForgotPassword from "./components/auth/client/forgot-password";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/product/details/:id" element={<ProductDetails />} />
           </Routes>
           <Toaster />

@@ -12,7 +12,7 @@ export const subscribeToNewsLetter = async (req, res, next) => {
       <p>From now on, you'll be the first to know about our latest updates, exclusive offers, and curated content — straight to your inbox.</p>
       <p>If you ever have any questions or feedback, we’re just an email away.</p>
       <p>Welcome again — we're glad you're here!</p>
-      <p>Best regards,<br>Team Shop.co</p>`,
+      <p>Best regards,<br>Team <a href="https://shop.co" target="_blank" rel="noopener noreferrer">Shop.co</a></p>`,
     });
     const newsLetter = await NewsLetter.create({ email });
     res.status(201).json({
