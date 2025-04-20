@@ -45,6 +45,7 @@ const Newsletter = () => {
           <TextInput
             type="email"
             name="email"
+            required
             placeholder="Enter your email address"
             register={register("email")}
             className="border border-white bg-white max-w-sm sm:w-80 w-full p-3 rounded-lg text-center text-xs sm:text-base"
