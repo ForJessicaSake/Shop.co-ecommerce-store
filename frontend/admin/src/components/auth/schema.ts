@@ -25,3 +25,16 @@ export const loginSchema = z.object({
 });
 
 export type LoginSchemaType = z.infer<typeof loginSchema>;
+
+export const forgotPasswordSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+});
+
+export type ForgotPasswordType = z.infer<typeof forgotPasswordSchema>;
+
+export const createAdminUserSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  role: z.enum(["ADMIN", "SUPER_ADMIN"], {
+    errorMap: () => ({ message: "Enter a valid role" }),
+  }),
+});

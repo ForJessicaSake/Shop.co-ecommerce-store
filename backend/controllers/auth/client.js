@@ -119,7 +119,7 @@ export const forgotPassword = async (req, res, next) => {
         <h4>Password Reset Successful</h4>
         <p>Your password has been successfully reset.</p>
         <p><strong>New Password:</strong> ${password}</p>
-        <p>Please use this password to <span><a href="https://shop-co-ecommerce-store.vercel.app/">log into your account</a></span>.</p>
+        <p>Please use this password to <span><a href="https://shop-co-ecommerce-store.vercel.app/login">log into your account</a></span>.</p>
         <p>If you did not request this reset, please contact our support team immediately.</p>
         <p>Best regards,<br>Team <a href="https://shop-co-ecommerce-store.vercel.app" target="_blank" rel="noopener noreferrer">Shop.co</a></p>`,
     });

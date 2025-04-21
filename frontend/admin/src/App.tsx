@@ -9,6 +9,8 @@ import ProductDetails from "./components/product/details";
 import EditProduct from "./components/product/edit";
 import { Toaster } from "sonner";
 import Transactions from "./components/transactions";
+import Users from "./components/users";
+import ForgotPassword from "./components/auth/forgot-password";
 
 const queryClient = new QueryClient();
 
@@ -20,10 +22,12 @@ function App() {
           <Routes>
             <Route index element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/product/new" element={<NewProduct />} />
             <Route path="/product/details/:id" element={<ProductDetails />} />
             <Route path="/product/edit/:id" element={<EditProduct />} />
             <Route path="/transactions" element={<Transactions />} />
+            <Route path="/Users" element={<Users />} />
           </Routes>
           <Toaster />
         </Layout>

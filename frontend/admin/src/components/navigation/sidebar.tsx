@@ -1,9 +1,11 @@
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { GiClothes } from "react-icons/gi";
 import { FaMoneyCheckAlt } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router";
 import clsx from "clsx";
 import { toast } from "sonner";
+
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,7 +23,7 @@ const Sidebar = () => {
         SHOP.CO
       </Link>
       <div>
-        <ul className="space-y-8 cursor-pointer w-full">
+        <ul className="space-y-8 text-sm cursor-pointer w-full">
           <li>
             <Link
               to="/"
@@ -42,6 +44,17 @@ const Sidebar = () => {
             >
               <FaMoneyCheckAlt className="text-lg" />
               Transactions
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/users"
+              className={clsx("flex items-center gap-3", {
+                underline: location.pathname === "/users",
+              })}
+            >
+              <FaRegUser className="text-lg" />
+              Users
             </Link>
           </li>
           <li

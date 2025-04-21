@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { forgotPasswordSchema, ForgotPasswordType } from "./schema";
-import Button from "../../micro/button";
-import TextInput from "../../micro/inputs/input";
-import { useForgotPassword } from "../../../lib/hooks";
+import TextInput from "../micro/inputs/input";
+import Button from "../micro/button";
+import { useForgotPassword } from "../../lib/hooks";
 import { Link } from "react-router";
 
 const ForgotPassword = () => {
@@ -40,6 +40,7 @@ const ForgotPassword = () => {
           <Button size="l" className="w-full" dark isLoading={isPending}>
             Submit
           </Button>
+
           <Link to="/login" className="underline">
             Click here to login
           </Link>

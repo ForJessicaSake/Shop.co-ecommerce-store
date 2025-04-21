@@ -17,13 +17,6 @@ export default function FileInput({
       {label && (
         <label className="block mb-1 text-sm font-medium">{label}</label>
       )}
-      {error && (
-        <div className="relative">
-          <p className="text-red-500 text-xs absolute bottom-1">
-            {typeof error === "string" && error}
-          </p>
-        </div>
-      )}
       <input
         {...props}
         type="file"
@@ -32,6 +25,13 @@ export default function FileInput({
         onChange={(e) => onFileChange && onFileChange(e.target?.files)}
         className="w-full rounded-md p-4 border placeholder:text-black/85 border-gray-100"
       />
+      {error && (
+        <div className="relative top-6">
+          <p className="text-red-500 text-xs absolute bottom-1">
+            {typeof error === "string" && error}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
