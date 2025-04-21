@@ -54,11 +54,22 @@ const Login = () => {
             Login
           </Button>
 
-          <div>
-            Forgot password?{" "}
-            <span className="cursor-pointer text-black/60">
-              <a href="/">Contact administrator</a>
-            </span>
+          <div className="space-y-2 text-sm text-black/80">
+            <div>
+              Don't have an account?{" "}
+              <a href="/signup" className="text-black/60 hover:underline">
+                Sign up
+              </a>
+            </div>
+            <div>
+              Forgot your password?{" "}
+              <a
+                href="/forgot-password"
+                className="text-black/60 hover:underline"
+              >
+                Reset it here
+              </a>
+            </div>
           </div>
         </div>
       </form>

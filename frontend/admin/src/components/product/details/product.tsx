@@ -6,13 +6,7 @@ import {
 } from "../../../lib/hooks/product";
 import { useNavigate, useParams } from "react-router";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import DialogComponent from "../../micro/dialog";
 
 const Product = () => {
   const { id } = useParams();
@@ -81,34 +75,29 @@ const Product = () => {
           <Button size="l" onClick={handleClickOpen} isLoading={isPending} dark>
             Delete Product
           </Button>
-          <Dialog
+          <DialogComponent
             open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle>Delete Product</DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                Are you sure you would like to delete this product?
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions className="">
-              <Button size="s" onClick={handleClose}>
-                No
-              </Button>
-              <Button
-                size="s"
-                onClick={() => {
-                  deleteProductMutation();
-                  handleClose();
-                }}
-                dark
-              >
-                Yes
-              </Button>
-            </DialogActions>
-          </Dialog>
+            handleClose={handleClose}
+            title="Delete Product"
+            actionText="Are you sure you would like to delete this product?"
+            children={
+              <div>
+                <Button size="s" onClick={handleClose}>
+                  No
+                </Button>
+                <Button
+                  size="s"
+                  onClick={() => {
+                    deleteProductMutation();
+                    handleClose();
+                  }}
+                  dark
+                >
+                  Yes
+                </Button>
+              </div>
+            }
+          />
         </div>
         <div className="border border-black/5"></div>
       </div>

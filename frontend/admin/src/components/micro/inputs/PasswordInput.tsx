@@ -28,13 +28,6 @@ export default function PasswordInput({
   return (
     <div className="w-full">
       {label && <label className="mb-1 text-sm font-medium">{label}</label>}
-      {error && (
-        <div className="relative">
-          <p className="text-red-500 text-xs absolute bottom-1">
-            {typeof error === "string" && error}
-          </p>
-        </div>
-      )}
       <div className="relative w-full">
         <input
           className={clsx(
@@ -52,6 +45,13 @@ export default function PasswordInput({
           {passwordType === "password" ? <FaEye /> : <FaRegEyeSlash />}
         </span>
       </div>
+      {error && (
+        <div className="relative top-6">
+          <p className="text-red-500 text-xs absolute bottom-1">
+            {typeof error === "string" && error}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

@@ -32,13 +32,6 @@ const SelectInput = ({
   return (
     <div>
       {label && <label className="mb-1 text-sm font-medium">{label}</label>}
-      {error && (
-        <div className="relative">
-          <p className="text-red-500 text-xs absolute bottom-1">
-            {typeof error === "string" && error}
-          </p>
-        </div>
-      )}
       <select
         className="w-full rounded-md p-4 mt-1 border placeholder:text-black/85 border-gray-100"
         {...register}
@@ -57,6 +50,13 @@ const SelectInput = ({
           </option>
         ))}
       </select>
+      {error && (
+        <div className="relative top-6">
+          <p className="text-red-500 text-xs absolute bottom-1">
+            {typeof error === "string" && error}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

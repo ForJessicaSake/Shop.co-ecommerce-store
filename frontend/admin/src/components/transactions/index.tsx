@@ -21,7 +21,7 @@ const Transactions = () => {
     );
   return (
     <div className="mt-10">
-      <h1 className="text-2xl mb-5 font-bold">All Transactions</h1>
+      <h1 className="text-2xl mb-10 font-bold">All Transactions</h1>
       <TableContainer>
         <Table
           sx={{ minWidth: 1000, cursor: "pointer" }}

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import Navbar from "../navbar";
+import Navbar from "../navigation/navbar";
 import Sidebar from "../navigation/sidebar";
 
 type LayoutProps = PropsWithChildren<{}>;

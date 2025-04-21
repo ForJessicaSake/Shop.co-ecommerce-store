@@ -31,7 +31,7 @@ const Button = ({
             dark,
           "bg-white text-black hover:bg-black hover:text-white hover:border-white":
             !dark,
-          "cursor-not-allowed": isLoading,
+          "!cursor-not-allowed": isLoading,
         },
         className
       )}
