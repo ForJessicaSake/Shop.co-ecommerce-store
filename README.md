@@ -46,6 +46,8 @@
 
 ### Admin Application
 - Secure login and signup
+- Reset password
+- User Management
 - Product and inventory management
 - Transaction management
 
