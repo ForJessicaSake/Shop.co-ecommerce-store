@@ -19,7 +19,7 @@
 ## 🧱 Tech Stack
 
 - **Frontend**: React, TypeScript, Tailwind CSS, React Query, Zustand
-- **Backend**: Node.js, Express.js, MongoDB, Mongoose
+- **Backend**: Node.js, Express.js, MongoDB, Mongoose, and Node Mailer
 - **Payments**: Paystack
 - **Deployment**: Vercel & Railway
 
@@ -39,8 +39,10 @@
 - Browse products with filters
 - Add to cart and checkout
 - Secure login and signup
+- Reset password
 - Payment integration via Paystack
 - View ordered items
+- Newsletter subscription
 
 ### Admin Application
 - Secure login and signup
