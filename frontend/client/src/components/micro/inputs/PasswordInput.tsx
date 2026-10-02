@@ -31,7 +31,7 @@ export default function PasswordInput({
       <div className="relative w-full">
         <input
           className={clsx(
-            "w-full rounded-md p-4 pr-10 border placeholder:text-black/85 text-sm border-gray-100",
+            "w-full rounded-xl border border-line bg-surface p-4 pr-10 text-sm text-ink placeholder:text-ink-soft",
             className
           )}
           type={passwordType}
@@ -39,7 +39,7 @@ export default function PasswordInput({
           {...props}
         />
         <span
-          className="absolute inset-y-0 right-5 flex items-center cursor-pointer text-gray-500"
+          className="absolute inset-y-0 right-5 flex items-center cursor-pointer text-ink-soft"
           onClick={handleToggle}
         >
           {passwordType === "password" ? <FaEye /> : <FaRegEyeSlash />}

@@ -22,7 +22,7 @@ const ReviewCard = ({
       key={key}
       className={clsx(
         className,
-        "rounded-xl lg:max-w-[400px] border border-black/10 space-y-3 p-5 sm:min-h-72 md:min-h-56 h-full"
+        "rounded-2xl lg:max-w-[400px] border border-line bg-surface space-y-3 p-5 sm:min-h-72 md:min-h-56 h-full"
       )}
     >
       <div className="flex items-center text-xl text-yellow-400 gap-2">
@@ -33,10 +33,10 @@ const ReviewCard = ({
         ))}
       </div>
       <div className="flex items-center gap-1">
-        <p className="text-headerText text-lg font-medium">{name}</p>
+        <p className="text-ink text-lg font-medium">{name}</p>
         <img src={checkIcon} alt="verified" className="h-6 w-6" />
       </div>
-      <p className="lg:max-w-md max-w-full text-sm text-black/60">{content}</p>
+      <p className="lg:max-w-md max-w-full text-sm text-ink-soft">{content}</p>
       <div className="flex items-center gap-x-2"></div>
     </div>
   );

@@ -49,10 +49,10 @@ const Product = () => {
           ${product.price - (product.discount || 0)}
           {product.discount && (
             <>
-              <span className="line-through text-black/60">
+              <span className="line-through text-ink-soft">
                 ${product.price}
               </span>
-              <span className="bg-[#FF3333]/10 text-[#FF3333] text-xs flex justify-center items-center p-2 rounded-full w-14 h-7">
+              <span className="bg-sale/10 text-sale text-xs flex justify-center items-center p-2 rounded-full w-14 h-7">
                 -{product.discount}%
               </span>
             </>
@@ -63,27 +63,27 @@ const Product = () => {
           it offers superior comfort and style.
         </p>
 
-        <div className="border border-black/5"></div>
+        <div className="border border-line"></div>
         <div className="py-1">
           <p>Available size</p>
           <div className="mt-2 flex flex-col sm:flex-row lg:items-center gap-5 space-x-5">
-            <Button size="s" dark={availableSize === "S"}>
+            <Button size="s" filled={availableSize === "S"}>
               Small
             </Button>
-            <Button size="s" dark={availableSize === "M"}>
+            <Button size="s" filled={availableSize === "M"}>
               Medium
             </Button>
-            <Button size="s" dark={availableSize === "L"}>
+            <Button size="s" filled={availableSize === "L"}>
               Large
             </Button>
-            <Button size="s" dark={availableSize === "XL"}>
+            <Button size="s" filled={availableSize === "XL"}>
               X-Large
             </Button>
           </div>
         </div>
-        <div className="border border-black/5"></div>
+        <div className="border border-line"></div>
         <div className="flex flex-col sm:flex-row gap-5 sm:justify-between sm:items-center my-7">
-          <div className="flex items-center justify-between gap-5 bg-black/5 max-w-[150px] w-full p-2 px-5 rounded-full cursor-pointer">
+          <div className="flex items-center justify-between gap-5 bg-surface-muted max-w-[150px] w-full p-2 px-5 rounded-full cursor-pointer">
             <span onClick={handleDecreaseCount}>
               <FaMinus />
             </span>
@@ -92,7 +92,7 @@ const Product = () => {
               <FaPlus />
             </span>
           </div>
-          <Button size="l" dark onClick={() => handleAddToCart(product)}>
+          <Button size="l" filled onClick={() => handleAddToCart(product)}>
             Add to Cart
           </Button>
         </div>

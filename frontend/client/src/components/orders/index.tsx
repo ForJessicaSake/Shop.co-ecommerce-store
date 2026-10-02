@@ -18,7 +18,7 @@ const Orders = () => {
       <h1 className="sm:text-3xl text-xl my-5">Your orders</h1>
 
       <div className="mt-5 flex flex-col lg:flex-row lg:justify-between gap-5 w-full">
-        <section className="w-full rounded-xl space-y-5 p-5 border border-black/10">
+        <section className="w-full rounded-2xl space-y-5 p-5 border border-line bg-surface">
           {orders?.length > 0 ? (
             <>
               {orders?.map((order: ProductType) => (
@@ -50,7 +50,7 @@ const Orders = () => {
                       className="max-w-[124px] max-h-[124px] w-full h-full"
                     />
                   </div>
-                  <div className="border border-black/5 my-5"></div>
+                  <div className="border border-line my-5"></div>
                 </div>
               ))}
             </>

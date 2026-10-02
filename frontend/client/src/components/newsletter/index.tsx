@@ -34,8 +34,8 @@ const Newsletter = () => {
       id="newsLetter"
       className="mx-auto container px-8 lg:px-16 my-10 lg:my-20"
     >
-      <div className="lg:p-10 p-5 bg-black flex flex-col gap-5 lg:flex-row lg:justify-between lg:items-center rounded-2xl">
-        <h2 className="font-bold text-xl sm:text-4xl text-white max-w-xl">
+      <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface p-5 text-ink lg:flex-row lg:items-center lg:justify-between lg:p-10">
+        <h2 className="max-w-xl text-xl font-bold sm:text-4xl">
           STAY UP TO DATE ABOUT OUR LATEST OFFERS
         </h2>
         <form
@@ -48,9 +48,13 @@ const Newsletter = () => {
             required
             placeholder="Enter your email address"
             register={register("email")}
-            className="border border-white bg-white max-w-sm sm:w-80 w-full p-3 rounded-lg text-center text-xs sm:text-base"
+            className="w-full max-w-sm border-line! bg-canvas! p-3 text-center text-xs text-ink sm:w-80 sm:text-base"
           />
-          <Button isLoading={isPending} className="max-w-sm w-full sm:w-80">
+          <Button
+            filled
+            isLoading={isPending}
+            className="w-full max-w-sm sm:w-80"
+          >
             Subscribe to Newsletter
           </Button>
         </form>

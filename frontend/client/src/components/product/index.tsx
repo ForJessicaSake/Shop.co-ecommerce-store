@@ -32,11 +32,11 @@ const Products = () => {
       <Breadcrumbs crumbs={[{ title: "Home", link: "/" }, { title: "Shop" }]} />
       <div className="flex lg:flex-row flex-col gap-5 pt-5">
         {showFilter && (
-          <div className="border border-black/10 rounded-xl sm:max-w-[295px] w-full h-fit p-4">
+          <div className="border border-line bg-surface rounded-2xl sm:max-w-[295px] w-full h-fit p-4">
             <div className="flex items-center justify-between">
               <p className=" font-bold">Filters</p>
               <MdOutlineFilterList
-                className="text-lg text-black/60 cursor-pointer"
+                className="text-lg text-ink-soft cursor-pointer"
                 onClick={handleToggleFilter}
               />
             </div>
@@ -52,42 +52,42 @@ const Products = () => {
                 <AccordionDetails className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Button
                     size="s"
-                    dark={size === ""}
+                    filled={size === ""}
                     onClick={() => setSize("")}
                   >
                     All
                   </Button>
                   <Button
                     size="s"
-                    dark={size === "XS"}
+                    filled={size === "XS"}
                     onClick={() => setSize("XS")}
                   >
                     X-Small
                   </Button>
                   <Button
                     size="s"
-                    dark={size === "S"}
+                    filled={size === "S"}
                     onClick={() => setSize("S")}
                   >
                     Small
                   </Button>
                   <Button
                     size="s"
-                    dark={size === "M"}
+                    filled={size === "M"}
                     onClick={() => setSize("M")}
                   >
                     Medium
                   </Button>
                   <Button
                     size="s"
-                    dark={size === "L"}
+                    filled={size === "L"}
                     onClick={() => setSize("L")}
                   >
                     Large
                   </Button>
                   <Button
                     size="s"
-                    dark={size === "XL"}
+                    filled={size === "XL"}
                     onClick={() => setSize("XL")}
                   >
                     X-Large
@@ -112,10 +112,10 @@ const Products = () => {
                     valueLabelDisplay="auto"
                     max={5000}
                     sx={{
-                      color: "black",
-                      "& .MuiSlider-thumb": { backgroundColor: "black" },
-                      "& .MuiSlider-track": { backgroundColor: "black" },
-                      "& .MuiSlider-rail": { backgroundColor: "gray" },
+                      color: "var(--ink)",
+                      "& .MuiSlider-thumb": { backgroundColor: "var(--ink)" },
+                      "& .MuiSlider-track": { backgroundColor: "var(--ink)" },
+                      "& .MuiSlider-rail": { backgroundColor: "var(--line)" },
                     }}
                   />
                 </AccordionDetails>
@@ -127,16 +127,16 @@ const Products = () => {
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center pb-5">
             <p className="text-2xl font-bold">Catalog</p>
             <div className="flex flex-wrap items-center gap-5 justify-between">
-              <p className="gap-1 text-sm text-black/60 flex items-center">
+              <p className="gap-1 text-sm text-ink-soft flex items-center">
                 Showing 1-10 of 100 Products
                 <span className="sm:block hidden">Sort by:</span>
-                <span className="font-medium text-black md:block hidden">
+                <span className="font-medium text-ink md:block hidden">
                   Newest
                 </span>
               </p>
               {!showFilter && (
                 <MdOutlineFilterList
-                  className="text-lg text-black bg-black/5 w-8 h-8 p-1 rounded-full cursor-pointer"
+                  className="text-lg text-ink bg-surface-muted w-8 h-8 p-1 rounded-full cursor-pointer"
                   onClick={handleToggleFilter}
                 />
               )}

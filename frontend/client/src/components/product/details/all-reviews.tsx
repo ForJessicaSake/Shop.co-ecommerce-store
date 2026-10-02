@@ -75,7 +75,7 @@ const AllReviews = () => {
           <p className="text-xl font-bold w-full">All Reviews</p>
         )}
         <div className="flex w-full justify-end items-end">
-          <Button dark size="m" onClick={handleOpen}>
+          <Button filled size="m" onClick={handleOpen}>
             Write a Review
           </Button>
         </div>
@@ -129,7 +129,7 @@ const AllReviews = () => {
           </div>
 
           <div className="w-full flex justify-center">
-            <Button dark size="l" isLoading={isPending} className="max-w-xs">
+            <Button filled size="l" isLoading={isPending} className="max-w-xs">
               Submit
             </Button>
           </div>

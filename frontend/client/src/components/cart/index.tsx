@@ -92,7 +92,7 @@ const Cart = () => {
       <h1 className="sm:text-3xl text-xl">Your cart</h1>
 
       <div className="mt-5 flex flex-col lg:flex-row lg:justify-between gap-5 w-full">
-        <section className="w-full rounded-xl space-y-5 p-5 border border-black/10">
+        <section className="w-full rounded-xl space-y-5 p-5 border border-line bg-surface">
           {cart.length > 0 ? (
             <>
               {cart.map((product) => (
@@ -110,14 +110,14 @@ const Cart = () => {
                       <div className="flex items-center justify-between">
                         <p className="font-bold">{product.name}</p>
                         <RiDeleteBin5Fill
-                          className="text-[#FF3333] cursor-pointer"
+                          className="text-sale cursor-pointer"
                           onClick={() => handleRemoveCart(product)}
                         />
                       </div>
                       <p>Size: {product.size}</p>
                       <div className="flex flex-col sm:flex-row gap-5 sm:items-center sm:justify-between">
                         <p className="text-lg font-bold">${product.price}</p>
-                        <div className="flex items-center justify-between gap-2 bg-black/5 max-w-[150px] w-full p-2 px-5 rounded-full cursor-pointer">
+                        <div className="flex items-center justify-between gap-2 bg-surface-muted max-w-[150px] w-full p-2 px-5 rounded-full cursor-pointer">
                           <span onClick={() => handleDecreaseQuantity(product)}>
                             <FaMinus />
                           </span>
@@ -129,7 +129,7 @@ const Cart = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="border border-black/5 my-5"></div>
+                  <div className="border border-line my-5"></div>
                 </div>
               ))}
             </>
@@ -137,22 +137,22 @@ const Cart = () => {
             <EmptyCart />
           )}
         </section>
-        <section className="max-w-sm w-full h-fit rounded-xl p-5 border border-black/10">
+        <section className="max-w-sm w-full h-fit rounded-xl p-5 border border-line bg-surface">
           <p className="font-bold text-xl">Order Summary</p>
           <div className="space-y-3 mt-5">
             <div className="flex justify-between items-center">
-              <p className="text-black/60">Subtotal</p>
+              <p className="text-ink-soft">Subtotal</p>
               <p className="font-bold">${subTotal}</p>
             </div>
             <div className="flex justify-between">
-              <p className="text-black/60">Discount</p>
-              <p className="font-bold text-[#FF3333]">{discount}</p>
+              <p className="text-ink-soft">Discount</p>
+              <p className="font-bold text-sale">{discount}</p>
             </div>
             <div className="flex justify-between">
-              <p className="text-black/60">Delivery fee</p>
+              <p className="text-ink-soft">Delivery fee</p>
               <p className="font-bold">${deliveryCharge}</p>
             </div>
-            <div className="border border-black/5"></div>
+            <div className="border border-line"></div>
             <div className="flex justify-between">
               <p>Total</p>
               <p className="font-bold text-xl">${total}</p>
@@ -160,7 +160,7 @@ const Cart = () => {
             <Button
               className="mt-5 w-full"
               size="l"
-              dark
+              filled
               isLoading={!total || isPending}
               onClick={handleCheckout}
             >

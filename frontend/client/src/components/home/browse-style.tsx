@@ -6,7 +6,7 @@ import gym from "../../assets/images/gym.svg";
 const BrowseStyle = () => {
   return (
     <section className="mx-auto container px-8 lg:px-16">
-      <div className="bg-[#F0F0F0] lg:p-10 p-5 rounded-2xl break-all">
+      <div className="bg-surface-muted lg:p-10 p-5 rounded-2xl">
         <h2 className="sm:text-4xl text-xl font-bold text-center">
           BROWSE BY DRESS STYLE
         </h2>

@@ -9,7 +9,7 @@ import calvinKlien from "../../assets/images/brands/calvin klein.svg";
 
 const Brands = () => {
   return (
-    <section id="brands" className="bg-black p-5 lg:p-10 -mt-10 lg:-mt-20">
+    <section id="brands" className="bg-ink p-5 lg:p-10">
       <div className="lg:block hidden">
         <Slider {...largeSettings}>
           <img src={versace} alt="Versace" className="w-40 h-10" />

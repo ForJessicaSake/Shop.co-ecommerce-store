@@ -6,7 +6,7 @@ type ButtonProps = PropsWithChildren<{
   isLoading?: boolean;
   onClick?: () => void;
   size?: "s" | "m" | "l";
-  dark?: boolean;
+  filled?: boolean;
 }>;
 
 const Button = ({
@@ -15,23 +15,21 @@ const Button = ({
   onClick,
   size = "m",
   children,
-  dark = false,
+  filled = false,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       disabled={isLoading}
       className={clsx(
-        "custom-button cursor-pointer text-sm break-all border border-black/10 rounded-lg p-[11px] font-medium transition-all duration-300 ease-in-out transform hover:scale-105",
+        "cursor-pointer rounded-xl border px-4 py-2.5 text-sm font-medium transition duration-200 hover:-translate-y-0.5 disabled:translate-y-0",
         {
           "sm:w-fit min-w-28": size === "s",
           "sm:w-52": size === "m",
           "w-full": size === "l",
-          "bg-black text-white hover:bg-white hover:text-black hover:border-black":
-            dark,
-          "bg-white text-black hover:bg-black hover:text-white hover:border-white":
-            !dark,
-          "!cursor-not-allowed": isLoading,
+          "border-transparent bg-ink text-canvas hover:opacity-90": filled,
+          "border-line bg-surface text-ink hover:border-ink": !filled,
+          "!cursor-not-allowed opacity-60": isLoading,
         },
         className
       )}

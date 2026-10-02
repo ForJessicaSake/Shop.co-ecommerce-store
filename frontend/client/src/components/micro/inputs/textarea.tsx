@@ -34,7 +34,7 @@ export default function TextAreaInput({
       )}
       <textarea
         className={clsx(className, {
-          "w-full rounded-md p-4 border placeholder:text-black/85 text-sm border-gray-100":
+          "w-full rounded-xl border border-line bg-surface p-4 text-sm text-ink placeholder:text-ink-soft":
             !className,
         })}
         rows={rows}

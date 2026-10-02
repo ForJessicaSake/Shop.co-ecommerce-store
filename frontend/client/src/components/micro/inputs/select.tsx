@@ -33,7 +33,7 @@ const SelectInput = ({
     <div>
       {label && <label className="mb-1 text-sm font-medium">{label}</label>}
       <select
-        className="w-full rounded-md p-4 mt-1 border placeholder:text-black/85 border-gray-100"
+        className="w-full rounded-xl border border-line bg-surface p-4 mt-1 text-ink"
         {...register}
         name={name}
         defaultValue={defaultValue}

@@ -11,10 +11,13 @@ import Login from "./components/auth/client/login";
 import SignUp from "./components/auth/client/signup";
 import Orders from "./components/orders";
 import ForgotPassword from "./components/auth/client/forgot-password";
+import { useTheme } from "./lib/hooks/use-theme";
 
 const queryClient = new QueryClient();
 
 function App() {
+  const { theme } = useTheme();
+
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -29,7 +32,7 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/product/details/:id" element={<ProductDetails />} />
           </Routes>
-          <Toaster />
+          <Toaster theme={theme} />
         </Layout>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

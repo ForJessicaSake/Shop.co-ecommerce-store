@@ -42,8 +42,8 @@ const Testimonials = () => {
               key={customer.id.toString()}
               className={
                 currentSlideNumber === index
-                  ? "bg-white shadow-md"
-                  : "bg-accentGrey"
+                  ? "bg-surface shadow-sm"
+                  : "bg-surface-muted"
               }
             />
           ))}
@@ -63,8 +63,8 @@ const Testimonials = () => {
               key={customer.id.toString()}
               className={
                 currentSlideNumber === index
-                  ? "bg-white shadow-md"
-                  : "bg-accentGrey"
+                  ? "bg-surface shadow-sm"
+                  : "bg-surface-muted"
               }
             />
           ))}

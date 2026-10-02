@@ -29,7 +29,7 @@ const SignUp = () => {
   return (
     <section className="container my-10 mx-auto px-10 lg:px-16 flex justify-center items-center">
       <form
-        className="w-full rounded-xl p-5 max-w-lg shadow-lg"
+        className="w-full rounded-2xl border border-line bg-surface p-5 max-w-lg shadow-sm"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-xl sm:text-3xl font-bold text-center">
@@ -56,13 +56,13 @@ const SignUp = () => {
             type="password"
             name="confirmPassword"
           />
-          <Button size="l" className="w-full" dark isLoading={isPending}>
+          <Button size="l" className="w-full" filled isLoading={isPending}>
             Sign up
           </Button>
 
           <div>
             Already have an account?{" "}
-            <span className="cursor-pointer text-black/60">
+            <span className="cursor-pointer text-ink-soft">
               <a href="/login">login</a>
             </span>
           </div>

@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { useCartStore } from "../store";
 import Button from "../micro/button";
+import ThemeToggle from "../micro/theme-toggle";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,32 +13,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="container mx-auto px-8 lg:px-16 py-5">
+    <nav className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md">
+      <div className="container mx-auto px-8 lg:px-16 py-4">
       <div className="hidden lg:flex items-center justify-between ">
         <div className="flex items-center gap-8">
           <Link
-            className="cursor-pointer font-extrabold text-3xl relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+            className="cursor-pointer font-extrabold text-3xl relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full"
             to="/"
           >
             SHOP.CO
           </Link>
           <ul className="flex items-center gap-5 text-sm">
-            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full">
               <Link to="/shop">Shop</Link>
             </li>
-            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full">
               <Link to="/orders">Orders</Link>
             </li>
-            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full">
               <a href="#newsLetter">Newsletter</a>
             </li>
-            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
+            <li className="relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full">
               <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Link to="/cart" className="relative">
             <p className="absolute bottom-3 right-5 text-sm font-medium text-green-500">
               {cartCount}
@@ -76,6 +79,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Link to="/cart" className="relative">
               <p className="absolute bottom-3 right-5 text-sm font-medium text-green-500">
                 {cartCount}
@@ -84,7 +88,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="mt-5 bg-white pl-8">
+        <div className="mt-5 bg-canvas pl-8">
           {isOpen && (
             <ul className="space-y-5 text-xs">
               <li>
@@ -105,6 +109,7 @@ const Navbar = () => {
             </ul>
           )}
         </div>
+      </div>
       </div>
     </nav>
   );

@@ -23,7 +23,7 @@ export default function FileInput({
         id="fileInput"
         accept="image/png, image/jpg, image/jpeg"
         onChange={(e) => onFileChange && onFileChange(e.target?.files)}
-        className="w-full rounded-md p-4 border placeholder:text-black/85 border-gray-100"
+        className="w-full rounded-xl border border-line bg-surface p-4 text-ink"
       />
       {error && (
         <div className="relative top-6">

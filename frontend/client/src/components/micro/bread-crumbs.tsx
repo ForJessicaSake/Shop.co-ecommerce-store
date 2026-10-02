@@ -13,7 +13,7 @@ type Breadcrumb = {
 
 export function Breadcrumbs({ crumbs }: Props) {
   return (
-    <div className="flex mb-6 items-center gap-2 text-sm font-medium text-black/60 font-light">
+    <div className="flex mb-6 items-center gap-2 text-sm font-medium text-ink-soft font-light">
       {crumbs.map((crumb, i) => {
         return (
           <Fragment key={i}>
@@ -22,7 +22,7 @@ export function Breadcrumbs({ crumbs }: Props) {
                 {crumb.title}
               </Link>
             ) : (
-              <p className="text-black">{crumb.title}</p>
+              <p className="text-ink">{crumb.title}</p>
             )}
             {i < crumbs.length - 1 && <FaAngleRight className="h-5 w-5" />}
           </Fragment>

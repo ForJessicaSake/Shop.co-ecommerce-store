@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <section className="container my-10 mx-auto px-10 lg:px-16 flex justify-center items-center">
       <form
-        className="w-full rounded-xl p-5 max-w-lg shadow-lg"
+        className="w-full rounded-2xl border border-line bg-surface p-5 max-w-lg shadow-sm"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-xl sm:text-3xl font-bold text-center">
@@ -48,14 +48,14 @@ const Login = () => {
             type="password"
             name="password"
           />
-          <Button size="l" className="w-full" dark isLoading={isPending}>
+          <Button size="l" className="w-full" filled isLoading={isPending}>
             Login
           </Button>
 
-          <div className="space-y-2 text-sm text-black/80">
+          <div className="space-y-2 text-sm text-ink">
             <div>
               Don't have an account?{" "}
-              <a href="/signup" className="text-black/60 hover:underline">
+              <a href="/signup" className="text-ink-soft hover:underline">
                 Sign up
               </a>
             </div>
@@ -63,7 +63,7 @@ const Login = () => {
               Forgot your password?{" "}
               <a
                 href="/forgot-password"
-                className="text-black/60 hover:underline"
+                className="text-ink-soft hover:underline"
               >
                 Reset it here
               </a>

@@ -6,7 +6,7 @@ import Newsletter from "../newsletter";
 type LayoutProps = PropsWithChildren<{}>;
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <main className="overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden bg-canvas text-ink">
       <Navbar />
       {children}
       <Newsletter />

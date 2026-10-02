@@ -16,7 +16,7 @@ const ModalComponent = ({ title, open, handleClose, children }: ModalProps) => {
       aria-describedby="modal-modal-description"
       className="backdrop-blur-sm bg-[#0000000F] flex items-center justify-center w-screen h-screen p-5"
     >
-      <div className="bg-white max-w-lg w-full h-fit p-5 rounded-xl">
+      <div className="bg-surface text-ink border border-line max-w-lg w-full h-fit p-5 rounded-2xl">
         <div className="flex items-center justify-between mb-9">
           <p className="text-xl sm:text-3xl font-bold">{title}</p>
           <RiCloseLargeFill
